@@ -5,3 +5,7 @@ pyproject.toml
 temp_folder/
 .DS_Store
 __pycache__/
+audio_files/
+temp_files/
+old/
+.git

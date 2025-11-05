@@ -1,0 +1,194 @@
+2025-11-05 15:38:46.745 | INFO     | splot_audio_v3:__init__:52 - Initialized AudioProcessor
+2025-11-05 15:38:46.745 | INFO     | splot_audio_v3:clear_sentence_folders:234 - Cleared 0 *_sentences folders under audio_files
+2025-11-05 15:38:46.745 | INFO     | splot_audio_v3:process_all:249 - Found 4 folders in audio_files
+2025-11-05 15:38:46.746 | INFO     | splot_audio_v3:process_all:256 - Processing 7 files in audio_files/2
+2025-11-05 15:38:46.771 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_2_audio_1.wav
+2025-11-05 15:38:46.771 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_2_audio_1.wav
+2025-11-05 15:38:46.774 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 6 speech segments in temp_files/voice_2_audio_1.wav
+2025-11-05 15:38:46.774 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 6 segments (min_len=0.0s)
+2025-11-05 15:38:46.776 | INFO     | splot_audio_v3:cut_audio:209 - Exported 6 segments → audio_files/2/voice_2_audio_1_sentences/audio_sentences
+2025-11-05 15:38:46.776 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/2/voice_2_audio_1.wav
+2025-11-05 15:38:46.798 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_2_audio_2.wav
+2025-11-05 15:38:46.798 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_2_audio_2.wav
+2025-11-05 15:38:46.801 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 5 speech segments in temp_files/voice_2_audio_2.wav
+2025-11-05 15:38:46.801 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 5 segments (min_len=0.0s)
+2025-11-05 15:38:46.802 | INFO     | splot_audio_v3:cut_audio:209 - Exported 5 segments → audio_files/2/voice_2_audio_2_sentences/audio_sentences
+2025-11-05 15:38:46.802 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/2/voice_2_audio_2.wav
+2025-11-05 15:38:46.815 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_2_audio_3.wav
+2025-11-05 15:38:46.815 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_2_audio_3.wav
+2025-11-05 15:38:46.817 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 3 speech segments in temp_files/voice_2_audio_3.wav
+2025-11-05 15:38:46.817 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 3 segments (min_len=0.0s)
+2025-11-05 15:38:46.818 | INFO     | splot_audio_v3:cut_audio:209 - Exported 3 segments → audio_files/2/voice_2_audio_3_sentences/audio_sentences
+2025-11-05 15:38:46.818 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/2/voice_2_audio_3.wav
+2025-11-05 15:38:46.840 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_2_audio_4.wav
+2025-11-05 15:38:46.840 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_2_audio_4.wav
+2025-11-05 15:38:46.843 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 5 speech segments in temp_files/voice_2_audio_4.wav
+2025-11-05 15:38:46.843 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 5 segments (min_len=0.0s)
+2025-11-05 15:38:46.844 | INFO     | splot_audio_v3:cut_audio:209 - Exported 5 segments → audio_files/2/voice_2_audio_4_sentences/audio_sentences
+2025-11-05 15:38:46.844 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/2/voice_2_audio_4.wav
+2025-11-05 15:38:46.866 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_2_audio_5.wav
+2025-11-05 15:38:46.866 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_2_audio_5.wav
+2025-11-05 15:38:46.868 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 2 speech segments in temp_files/voice_2_audio_5.wav
+2025-11-05 15:38:46.868 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 2 segments (min_len=0.0s)
+2025-11-05 15:38:46.869 | INFO     | splot_audio_v3:cut_audio:209 - Exported 2 segments → audio_files/2/voice_2_audio_5_sentences/audio_sentences
+2025-11-05 15:38:46.869 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/2/voice_2_audio_5.wav
+2025-11-05 15:38:46.889 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_2_audio_6.wav
+2025-11-05 15:38:46.889 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_2_audio_6.wav
+2025-11-05 15:38:46.891 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 5 speech segments in temp_files/voice_2_audio_6.wav
+2025-11-05 15:38:46.892 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 5 segments (min_len=0.0s)
+2025-11-05 15:38:46.893 | INFO     | splot_audio_v3:cut_audio:209 - Exported 5 segments → audio_files/2/voice_2_audio_6_sentences/audio_sentences
+2025-11-05 15:38:46.893 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/2/voice_2_audio_6.wav
+2025-11-05 15:38:46.908 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_2_audio_7.wav
+2025-11-05 15:38:46.908 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_2_audio_7.wav
+2025-11-05 15:38:46.910 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 7 speech segments in temp_files/voice_2_audio_7.wav
+2025-11-05 15:38:46.910 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 7 segments (min_len=0.0s)
+2025-11-05 15:38:46.911 | INFO     | splot_audio_v3:cut_audio:209 - Exported 7 segments → audio_files/2/voice_2_audio_7_sentences/audio_sentences
+2025-11-05 15:38:46.911 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/2/voice_2_audio_7.wav
+2025-11-05 15:38:46.911 | INFO     | splot_audio_v3:process_all:256 - Processing 5 files in audio_files/4
+2025-11-05 15:38:47.226 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_4_audio_1.wav
+2025-11-05 15:38:47.226 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_4_audio_1.wav
+2025-11-05 15:38:47.265 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 1 speech segments in temp_files/voice_4_audio_1.wav
+2025-11-05 15:38:47.267 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 1 segments (min_len=0.0s)
+2025-11-05 15:38:47.272 | INFO     | splot_audio_v3:cut_audio:209 - Exported 1 segments → audio_files/4/voice_4_audio_1_sentences/audio_sentences
+2025-11-05 15:38:47.273 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/4/voice_4_audio_1.wav
+2025-11-05 15:38:47.377 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_4_audio_2.wav
+2025-11-05 15:38:47.377 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_4_audio_2.wav
+2025-11-05 15:38:47.391 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 1 speech segments in temp_files/voice_4_audio_2.wav
+2025-11-05 15:38:47.392 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 1 segments (min_len=0.0s)
+2025-11-05 15:38:47.394 | INFO     | splot_audio_v3:cut_audio:209 - Exported 1 segments → audio_files/4/voice_4_audio_2_sentences/audio_sentences
+2025-11-05 15:38:47.395 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/4/voice_4_audio_2.wav
+2025-11-05 15:38:47.653 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_4_audio_3.wav
+2025-11-05 15:38:47.653 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_4_audio_3.wav
+2025-11-05 15:38:47.687 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 1 speech segments in temp_files/voice_4_audio_3.wav
+2025-11-05 15:38:47.689 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 1 segments (min_len=0.0s)
+2025-11-05 15:38:47.695 | INFO     | splot_audio_v3:cut_audio:209 - Exported 1 segments → audio_files/4/voice_4_audio_3_sentences/audio_sentences
+2025-11-05 15:38:47.695 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/4/voice_4_audio_3.wav
+2025-11-05 15:38:47.744 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_4_audio_4.wav
+2025-11-05 15:38:47.744 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_4_audio_4.wav
+2025-11-05 15:38:47.751 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 1 speech segments in temp_files/voice_4_audio_4.wav
+2025-11-05 15:38:47.751 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 1 segments (min_len=0.0s)
+2025-11-05 15:38:47.753 | INFO     | splot_audio_v3:cut_audio:209 - Exported 1 segments → audio_files/4/voice_4_audio_4_sentences/audio_sentences
+2025-11-05 15:38:47.753 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/4/voice_4_audio_4.wav
+2025-11-05 15:38:47.899 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_4_audio_5.wav
+2025-11-05 15:38:47.899 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_4_audio_5.wav
+2025-11-05 15:38:47.917 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 1 speech segments in temp_files/voice_4_audio_5.wav
+2025-11-05 15:38:47.917 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 1 segments (min_len=0.0s)
+2025-11-05 15:38:47.919 | INFO     | splot_audio_v3:cut_audio:209 - Exported 1 segments → audio_files/4/voice_4_audio_5_sentences/audio_sentences
+2025-11-05 15:38:47.920 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/4/voice_4_audio_5.wav
+2025-11-05 15:38:47.920 | INFO     | splot_audio_v3:process_all:256 - Processing 18 files in audio_files/5
+2025-11-05 15:38:47.941 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_1.wav
+2025-11-05 15:38:47.941 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_1.wav
+2025-11-05 15:38:47.944 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 1 speech segments in temp_files/voice_5_audio_1.wav
+2025-11-05 15:38:47.944 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 1 segments (min_len=0.0s)
+2025-11-05 15:38:47.944 | INFO     | splot_audio_v3:cut_audio:209 - Exported 1 segments → audio_files/5/voice_5_audio_1_sentences/audio_sentences
+2025-11-05 15:38:47.945 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_1.wav
+2025-11-05 15:38:47.974 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_10.wav
+2025-11-05 15:38:47.975 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_10.wav
+2025-11-05 15:38:47.978 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 3 speech segments in temp_files/voice_5_audio_10.wav
+2025-11-05 15:38:47.978 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 3 segments (min_len=0.0s)
+2025-11-05 15:38:47.979 | INFO     | splot_audio_v3:cut_audio:209 - Exported 3 segments → audio_files/5/voice_5_audio_10_sentences/audio_sentences
+2025-11-05 15:38:47.979 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_10.wav
+2025-11-05 15:38:48.000 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_11.wav
+2025-11-05 15:38:48.000 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_11.wav
+2025-11-05 15:38:48.002 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 1 speech segments in temp_files/voice_5_audio_11.wav
+2025-11-05 15:38:48.002 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 1 segments (min_len=0.0s)
+2025-11-05 15:38:48.003 | INFO     | splot_audio_v3:cut_audio:209 - Exported 1 segments → audio_files/5/voice_5_audio_11_sentences/audio_sentences
+2025-11-05 15:38:48.003 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_11.wav
+2025-11-05 15:38:48.028 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_12.wav
+2025-11-05 15:38:48.028 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_12.wav
+2025-11-05 15:38:48.031 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 2 speech segments in temp_files/voice_5_audio_12.wav
+2025-11-05 15:38:48.031 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 2 segments (min_len=0.0s)
+2025-11-05 15:38:48.032 | INFO     | splot_audio_v3:cut_audio:209 - Exported 2 segments → audio_files/5/voice_5_audio_12_sentences/audio_sentences
+2025-11-05 15:38:48.032 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_12.wav
+2025-11-05 15:38:48.058 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_13.wav
+2025-11-05 15:38:48.058 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_13.wav
+2025-11-05 15:38:48.061 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 1 speech segments in temp_files/voice_5_audio_13.wav
+2025-11-05 15:38:48.061 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 1 segments (min_len=0.0s)
+2025-11-05 15:38:48.062 | INFO     | splot_audio_v3:cut_audio:209 - Exported 1 segments → audio_files/5/voice_5_audio_13_sentences/audio_sentences
+2025-11-05 15:38:48.062 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_13.wav
+2025-11-05 15:38:48.092 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_14.wav
+2025-11-05 15:38:48.092 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_14.wav
+2025-11-05 15:38:48.095 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 1 speech segments in temp_files/voice_5_audio_14.wav
+2025-11-05 15:38:48.095 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 1 segments (min_len=0.0s)
+2025-11-05 15:38:48.096 | INFO     | splot_audio_v3:cut_audio:209 - Exported 1 segments → audio_files/5/voice_5_audio_14_sentences/audio_sentences
+2025-11-05 15:38:48.096 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_14.wav
+2025-11-05 15:38:48.126 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_15.wav
+2025-11-05 15:38:48.126 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_15.wav
+2025-11-05 15:38:48.129 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 4 speech segments in temp_files/voice_5_audio_15.wav
+2025-11-05 15:38:48.129 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 4 segments (min_len=0.0s)
+2025-11-05 15:38:48.131 | INFO     | splot_audio_v3:cut_audio:209 - Exported 4 segments → audio_files/5/voice_5_audio_15_sentences/audio_sentences
+2025-11-05 15:38:48.131 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_15.wav
+2025-11-05 15:38:48.154 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_16.wav
+2025-11-05 15:38:48.154 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_16.wav
+2025-11-05 15:38:48.157 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 2 speech segments in temp_files/voice_5_audio_16.wav
+2025-11-05 15:38:48.158 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 2 segments (min_len=0.0s)
+2025-11-05 15:38:48.158 | INFO     | splot_audio_v3:cut_audio:209 - Exported 2 segments → audio_files/5/voice_5_audio_16_sentences/audio_sentences
+2025-11-05 15:38:48.159 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_16.wav
+2025-11-05 15:38:48.181 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_17.wav
+2025-11-05 15:38:48.181 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_17.wav
+2025-11-05 15:38:48.184 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 1 speech segments in temp_files/voice_5_audio_17.wav
+2025-11-05 15:38:48.184 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 1 segments (min_len=0.0s)
+2025-11-05 15:38:48.184 | INFO     | splot_audio_v3:cut_audio:209 - Exported 1 segments → audio_files/5/voice_5_audio_17_sentences/audio_sentences
+2025-11-05 15:38:48.184 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_17.wav
+2025-11-05 15:38:48.211 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_18.wav
+2025-11-05 15:38:48.211 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_18.wav
+2025-11-05 15:38:48.214 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 3 speech segments in temp_files/voice_5_audio_18.wav
+2025-11-05 15:38:48.215 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 3 segments (min_len=0.0s)
+2025-11-05 15:38:48.216 | INFO     | splot_audio_v3:cut_audio:209 - Exported 3 segments → audio_files/5/voice_5_audio_18_sentences/audio_sentences
+2025-11-05 15:38:48.216 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_18.wav
+2025-11-05 15:38:48.243 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_2.wav
+2025-11-05 15:38:48.243 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_2.wav
+2025-11-05 15:38:48.246 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 3 speech segments in temp_files/voice_5_audio_2.wav
+2025-11-05 15:38:48.247 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 3 segments (min_len=0.0s)
+2025-11-05 15:38:48.248 | INFO     | splot_audio_v3:cut_audio:209 - Exported 3 segments → audio_files/5/voice_5_audio_2_sentences/audio_sentences
+2025-11-05 15:38:48.248 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_2.wav
+2025-11-05 15:38:48.275 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_3.wav
+2025-11-05 15:38:48.275 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_3.wav
+2025-11-05 15:38:48.278 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 1 speech segments in temp_files/voice_5_audio_3.wav
+2025-11-05 15:38:48.279 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 1 segments (min_len=0.0s)
+2025-11-05 15:38:48.279 | INFO     | splot_audio_v3:cut_audio:209 - Exported 1 segments → audio_files/5/voice_5_audio_3_sentences/audio_sentences
+2025-11-05 15:38:48.279 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_3.wav
+2025-11-05 15:38:48.303 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_4.wav
+2025-11-05 15:38:48.303 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_4.wav
+2025-11-05 15:38:48.306 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 1 speech segments in temp_files/voice_5_audio_4.wav
+2025-11-05 15:38:48.306 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 1 segments (min_len=0.0s)
+2025-11-05 15:38:48.306 | INFO     | splot_audio_v3:cut_audio:209 - Exported 1 segments → audio_files/5/voice_5_audio_4_sentences/audio_sentences
+2025-11-05 15:38:48.306 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_4.wav
+2025-11-05 15:38:48.330 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_5.wav
+2025-11-05 15:38:48.330 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_5.wav
+2025-11-05 15:38:48.333 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 2 speech segments in temp_files/voice_5_audio_5.wav
+2025-11-05 15:38:48.333 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 2 segments (min_len=0.0s)
+2025-11-05 15:38:48.333 | INFO     | splot_audio_v3:cut_audio:209 - Exported 2 segments → audio_files/5/voice_5_audio_5_sentences/audio_sentences
+2025-11-05 15:38:48.334 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_5.wav
+2025-11-05 15:38:48.356 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_6.wav
+2025-11-05 15:38:48.356 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_6.wav
+2025-11-05 15:38:48.359 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 1 speech segments in temp_files/voice_5_audio_6.wav
+2025-11-05 15:38:48.359 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 1 segments (min_len=0.0s)
+2025-11-05 15:38:48.360 | INFO     | splot_audio_v3:cut_audio:209 - Exported 1 segments → audio_files/5/voice_5_audio_6_sentences/audio_sentences
+2025-11-05 15:38:48.360 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_6.wav
+2025-11-05 15:38:48.388 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_7.wav
+2025-11-05 15:38:48.388 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_7.wav
+2025-11-05 15:38:48.392 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 1 speech segments in temp_files/voice_5_audio_7.wav
+2025-11-05 15:38:48.392 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 1 segments (min_len=0.0s)
+2025-11-05 15:38:48.393 | INFO     | splot_audio_v3:cut_audio:209 - Exported 1 segments → audio_files/5/voice_5_audio_7_sentences/audio_sentences
+2025-11-05 15:38:48.393 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_7.wav
+2025-11-05 15:38:48.414 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_8.wav
+2025-11-05 15:38:48.414 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_8.wav
+2025-11-05 15:38:48.416 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 4 speech segments in temp_files/voice_5_audio_8.wav
+2025-11-05 15:38:48.416 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 4 segments (min_len=0.0s)
+2025-11-05 15:38:48.417 | INFO     | splot_audio_v3:cut_audio:209 - Exported 4 segments → audio_files/5/voice_5_audio_8_sentences/audio_sentences
+2025-11-05 15:38:48.417 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_8.wav
+2025-11-05 15:38:48.445 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_5_audio_9.wav
+2025-11-05 15:38:48.445 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_5_audio_9.wav
+2025-11-05 15:38:48.448 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 4 speech segments in temp_files/voice_5_audio_9.wav
+2025-11-05 15:38:48.449 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 4 segments (min_len=0.0s)
+2025-11-05 15:38:48.450 | INFO     | splot_audio_v3:cut_audio:209 - Exported 4 segments → audio_files/5/voice_5_audio_9_sentences/audio_sentences
+2025-11-05 15:38:48.450 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/5/voice_5_audio_9.wav
+2025-11-05 15:38:48.450 | INFO     | splot_audio_v3:process_all:256 - Processing 1 files in audio_files/6
+2025-11-05 15:38:48.469 | INFO     | splot_audio_v3:resample:80 - Resampled to 16000 Hz → temp_files/voice_6_audio_1.wav
+2025-11-05 15:38:48.469 | INFO     | splot_audio_v3:split_audio_vad:87 - Splitting file: temp_files/voice_6_audio_1.wav
+2025-11-05 15:38:48.471 | INFO     | splot_audio_v3:split_audio_vad:136 - Detected 4 speech segments in temp_files/voice_6_audio_1.wav
+2025-11-05 15:38:48.471 | INFO     | splot_audio_v3:merge_segments:169 - Merged into 4 segments (min_len=0.0s)
+2025-11-05 15:38:48.472 | INFO     | splot_audio_v3:cut_audio:209 - Exported 4 segments → audio_files/6/voice_6_audio_1_sentences/audio_sentences
+2025-11-05 15:38:48.472 | INFO     | splot_audio_v3:process_file:244 - Processed file audio_files/6/voice_6_audio_1.wav
+2025-11-05 15:38:48.475 | INFO     | splot_audio_v3:clear_temp_files:218 - Cleared all temp files in temp_files

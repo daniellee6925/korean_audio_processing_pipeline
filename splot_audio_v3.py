@@ -1,12 +1,15 @@
 import os
+import csv
 import yaml
 import wave
 import contextlib
 import webrtcvad
+import shutil
 from loguru import logger
 from typing import List, Tuple
 from pydub import AudioSegment
-from utils import find_files, find_folders, make_dir
+from utils import find_files, find_folders
+from pathlib import Path
 
 
 class SplitAudio:
@@ -19,7 +22,7 @@ class SplitAudio:
         # Paths
         path_config = config.get("paths", {})
         self.root_dir = path_config.get("root_dir", "archive")
-        self.output_dirname = path_config.get("audio_subdir", "audio_sentences")
+        self.output_dir = path_config.get("output_dir", "audio_sentences")
         self.temp_dir = path_config.get("temp_dir", "temp")
 
         # VAD settings
@@ -33,9 +36,12 @@ class SplitAudio:
 
         # Processing
         processing_config = config.get("processing", {})
-        self.min_len = processing_config.get("min_len", 2.0)
+        self.min_len = processing_config.get("min_len", 0.0)
         self.segment_name = processing_config.get("segment_name", "segment_")
 
+        log_file = "audio_processor.log"
+        if os.path.exists(log_file):
+            os.remove(log_file)
         # Logging
         logger.add(
             "audio_processor.log",
@@ -46,7 +52,7 @@ class SplitAudio:
         logger.info("Initialized AudioProcessor")
 
     def read_wave(self, path: str) -> tuple[bytes, int]:
-        """Reads a .wav file and returns PCM audio data and sample rate."""
+        """Reads an audio file and returns PCM audio data and sample rate."""
         with contextlib.closing(wave.open(path, "rb")) as wf:
             assert wf.getnchannels() == 1, "VAD only works on mono audio"
             assert wf.getsampwidth() == 2, "VAD only works on 16-bit audio"
@@ -70,7 +76,7 @@ class SplitAudio:
         )
         os.makedirs(self.temp_dir, exist_ok=True)
         resampled_path = os.path.join(self.temp_dir, os.path.basename(wav_path))
-        audio.export(resampled_path, format="wav")
+        audio.export(resampled_path, format=self.file_format)
         logger.info(f"Resampled to {self.sample_rate} Hz → {resampled_path}")
         return resampled_path
 
@@ -166,31 +172,78 @@ class SplitAudio:
         return merged
 
     def cut_audio(
-        self, wav_path: str, segments: list[tuple[float, float, float]]
+        self,
+        wav_path: str,
+        save_path: str,
+        segments: list[tuple[float, float, float]],
     ) -> None:
         """Cuts and exports segments as individual audio files."""
         audio = AudioSegment.from_file(wav_path)
-        output_dir = os.path.join(
-            os.path.dirname(wav_path), self.output_dirname
-        )
-        os.makedirs(output_dir, exist_ok=True)
+        output_dir_path = os.path.join(save_path, self.output_dir)
+        os.makedirs(output_dir_path, exist_ok=True)
 
-        for i, (start_sec, end_sec, _) in enumerate(segments):
+        for i, (start_sec, end_sec, duration) in enumerate(segments):
             cut = audio[int(start_sec * 1000) : int(end_sec * 1000)]
             out_path = os.path.join(
-                output_dir, f"{self.segment_name}{i + 1}.{self.file_format}"
+                output_dir_path,
+                f"{self.segment_name}{i + 1}.{self.file_format}",
             )
             cut.export(out_path, format=self.file_format)
+            csv_out_path = os.path.join(
+                output_dir_path,
+                f"{self.segment_name}{i + 1}.csv",
+            )
+            with open(csv_out_path, "w", encoding="utf-8") as f:
+                writer = csv.writer(f)
+                writer.writerow(
+                    [
+                        "segment_folder",
+                        "segment_file",
+                        "start_sec",
+                        "end_sec",
+                        "duration_sec",
+                    ]
+                )
+                writer.writerow(
+                    [save_path, out_path, start_sec, end_sec, duration]
+                )
 
-        logger.info(f"Exported {len(segments)} segments → {output_dir}")
+        logger.info(f"Exported {len(segments)} segments → {output_dir_path}")
 
-    def process_file(self, wav_path: str):
+    # ------ clean folder ------------
+    def clear_temp_files(self):
+        """Delete all contents of the temp directory."""
+        temp_path = Path(self.temp_dir)
+        if temp_path.exists() and temp_path.is_dir():
+            shutil.rmtree(temp_path)
+            temp_path.mkdir()  # recreate empty temp folder
+            logger.info(f"Cleared all temp files in {self.temp_dir}")
+        else:
+            logger.info(f"No temp folder found at {self.temp_dir}")
+
+    def clear_sentence_folders(self):
+        """Delete all *_sentences folders under root_dir recursively."""
+        root_path = Path(self.root_dir)
+        if not root_path.exists():
+            logger.info(f"Root directory {self.root_dir} does not exist")
+            return
+
+        count = 0
+        for folder in root_path.rglob("*_sentences"):
+            if folder.is_dir():
+                shutil.rmtree(folder)
+                count += 1
+        logger.info(
+            f"Cleared {count} *_sentences folders under {self.root_dir}"
+        )
+
+    def process_file(self, wav_path: str, save_path: str):
         """Full pipeline for one file: resample → split → merge → cut."""
         path = self.resample(wav_path) if self.resample_enabled else wav_path
         segments = self.split_audio_vad(path)
         merged = self.merge_segments(segments)
-        self.cut_audio(path, merged)
-        logger.info(f"Processed file {wav_path} ✅")
+        self.cut_audio(wav_path=path, save_path=save_path, segments=merged)
+        logger.info(f"Processed file {wav_path}")
 
     def process_all(self):
         """Run processing on all WAV files in subfolders."""
@@ -199,10 +252,17 @@ class SplitAudio:
 
         for folder in folders:
             folder_path = os.path.join(self.root_dir, folder)
-            audio_files = find_files(folder_path, extension=".WAV")
+            audio_files = find_files(
+                folder_path, extension=f".{self.file_format}"
+            )
             logger.info(f"Processing {len(audio_files)} files in {folder_path}")
             for file in audio_files:
                 try:
-                    self.process_file(file)
+                    file_stem = os.path.splitext(os.path.basename(file))[0]
+                    save_path = os.path.join(
+                        folder_path, file_stem + "_sentences"
+                    )
+                    os.makedirs(save_path, exist_ok=True)
+                    self.process_file(wav_path=file, save_path=save_path)
                 except Exception as e:
                     logger.error(f"Failed to process {file}: {e}")
