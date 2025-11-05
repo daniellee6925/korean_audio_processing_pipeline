@@ -1,0 +1,7 @@
+.flake8
+archive/
+.venv
+pyproject.toml
+temp_folder/
+.DS_Store
+__pycache__/

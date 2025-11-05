@@ -1,0 +1,15 @@
+torch>=2.0.0
+torchaudio>=2.0.0
+git+https://github.com/openai/whisper.git
+numpy>=1.23.0
+tqdm>=4.65.0
+ffmpeg-python>=0.2.0
+jiwer>=2.6.0
+webrtcvad>=2.0.10
+pydub>=0.25.1
+nltk>=3.8.1
+numpy==2.3.4
+pyyaml==6.0.3
+loguru==0.7.3
+torchcodec==0.8.1
+pydub==0.25.1

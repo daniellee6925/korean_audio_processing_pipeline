@@ -1,0 +1,30 @@
+paths:
+  root_dir: "archive"
+  audio_subdir: "audio_sentences"
+  text_subdir: "text_sentences"
+  temp_dir: "temp_files"
+  
+filename:
+  audio_filename: "Tr1.wav"
+  
+
+vad:
+  aggressiveness: 2          # 0-3
+  min_silence_ms: 1000         # milliseconds
+  sample_rate: null
+  resample: false
+  silence_threshold: 0.01
+  frame_duration: 30.0
+  file_foramt: "wav"
+
+processing:
+  min_len: .inf
+  segment_name: "segment_"
+
+silence_trim:
+  threshold: 0.05
+  window_ms: 20
+
+csv:
+  split_info_filename: "split_info.csv"
+  metrics_filename: "reading_metrics.csv"
