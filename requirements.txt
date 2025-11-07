@@ -17,3 +17,4 @@ importlib_resources
 pynini==2.1.7
 pytest
 pre-commit==3.5.0
+soundfile==0.13.1

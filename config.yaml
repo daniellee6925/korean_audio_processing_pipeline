@@ -1,7 +1,6 @@
 paths:
-  root_dir: "sentence_14"
-  output_dir: "audio_sentences"
-  text_subdir: "text_sentences"
+  root_dir: "audio_files_3"
+  output_dir: "audio_files_3"
   temp_dir: "temp_files"
   
   
@@ -9,7 +8,7 @@ paths:
 
 vad:
   aggressiveness: 2          # 0-3
-  min_silence_ms: 1000         # milliseconds
+  min_silence_ms: 600         # milliseconds
   min_segment_ms: 200.0         # milliseconds
   sample_rate: 16000
   resample: True
