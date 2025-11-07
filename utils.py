@@ -1,4 +1,5 @@
 import os
+import csv
 
 
 def find_folders(root_dir: str) -> list[str]:
@@ -51,6 +52,17 @@ def make_dir(folder_path: str) -> None:
     try:
         os.makedirs(folder_path, exist_ok=True)
     except PermissionError:
-        print(f"Warning: Permission denied while creating directory '{folder_path}'")
+        print(
+            f"Warning: Permission denied while creating directory '{folder_path}'"
+        )
     except Exception as e:
         print(f"Warning: Could not create directory '{folder_path}': {e}")
+
+
+def save_to_csv(
+    folder_path: str, rows: list[dict], fieldanmes: list[str]
+) -> None:
+    """Save output to csv."""
+    with open(folder_path, "w", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldanmes)
+        writer.writerows(rows)

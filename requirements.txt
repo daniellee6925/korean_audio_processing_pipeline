@@ -1,7 +1,7 @@
 torch>=2.0.0
 torchaudio>=2.0.0
 git+https://github.com/openai/whisper.git
-numpy>=1.23.0
+numpy==1.26.4
 tqdm>=4.65.0
 ffmpeg-python>=0.2.0
 jiwer>=2.6.0
@@ -13,3 +13,7 @@ pyyaml==6.0.3
 loguru==0.7.3
 torchcodec==0.8.1
 pydub==0.25.1
+importlib_resources
+pynini==2.1.7
+pytest
+pre-commit==3.5.0

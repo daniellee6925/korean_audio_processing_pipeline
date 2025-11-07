@@ -1,14 +1,16 @@
 paths:
-  root_dir: "audio_files"
+  root_dir: "sentence_14"
   output_dir: "audio_sentences"
   text_subdir: "text_sentences"
   temp_dir: "temp_files"
+  
   
   
 
 vad:
   aggressiveness: 2          # 0-3
   min_silence_ms: 1000         # milliseconds
+  min_segment_ms: 200.0         # milliseconds
   sample_rate: 16000
   resample: True
   silence_threshold: 0.01
@@ -17,7 +19,9 @@ vad:
 
 processing:
   min_len: 0.0
-  segment_name: "segment_"
+  segment_name: "segment"
+  max_workers: 8
+  segment_subfolders: True
 
 silence_trim:
   threshold: 0.05
@@ -26,3 +30,32 @@ silence_trim:
 csv:
   split_info_filename: "split_info.csv"
   metrics_filename: "reading_metrics.csv"
+
+# for whisper transcriber
+model:
+  name: "large-v3"
+  device: "cuda"
+  cache_dr: "/fsx/models"
+
+data:
+  root_dir: "/workspace/audio_files"
+  recursive: True
+  folder_prefix: None # set to process specific folders only
+  extension: ".wav" 
+  output_prefix: "transcribed_"
+
+transcription:
+  verbose: True
+  beam_size: 5
+  temperature: 0.0
+  language: "ko"
+
+logging:
+  save_logs: True
+  log_file: "Whisper_transcribe.log"
+
+
+# for sentence split validation
+val:
+  ratio_threshold: 0.2
+  val_csv_output: "validation_summary.csv"

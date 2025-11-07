@@ -5,10 +5,11 @@ import wave
 import contextlib
 import webrtcvad
 import shutil
+import subprocess
+from concurrent.futures import ThreadPoolExecutor
 from loguru import logger
-from typing import List, Tuple
+from typing import List, Tuple, Dict, Any
 from pydub import AudioSegment
-from utils import find_files, find_folders
 from pathlib import Path
 
 
@@ -16,28 +17,32 @@ class SplitAudio:
     """Encapsulates audio resampling, VAD segmentation, and cutting."""
 
     def __init__(self, config_path: str = "config.yaml"):
-        with open(config_path, "r", encoding="utf-8") as f:
-            config = yaml.safe_load(f)
+        self.config = self.load_config(config_path)
+        path_config = self.config["paths"]
+        vad_config = self.config["vad"]
+        processing_config = self.config["processing"]
 
         # Paths
-        path_config = config.get("paths", {})
         self.root_dir = path_config.get("root_dir", "archive")
         self.output_dir = path_config.get("output_dir", "audio_sentences")
         self.temp_dir = path_config.get("temp_dir", "temp")
 
         # VAD settings
-        vad_config = config.get("vad", {})
         self.aggressiveness = vad_config.get("aggressiveness", 2)
         self.min_silence_ms = vad_config.get("min_silence_ms", 1000)
+        self.min_segment_ms = vad_config.get("min_segment_ms", 200.0)
         self.sample_rate = vad_config.get("sample_rate", 16000)
-        self.resample_enabled = vad_config.get("resample", False)
+        self.resample_enabled = vad_config.get("resample", True)
         self.frame_duration = vad_config.get("frame_duration", 30)
         self.file_format = vad_config.get("file_format", "wav")
 
         # Processing
-        processing_config = config.get("processing", {})
         self.min_len = processing_config.get("min_len", 0.0)
-        self.segment_name = processing_config.get("segment_name", "segment_")
+        self.segment_name = processing_config.get("segment_name", "segment")
+        self.max_workers = processing_config.get("max_workers", 4)
+        self.segment_subfolders = processing_config.get(
+            "segment_subfolders", False
+        )
 
         log_file = "audio_processor.log"
         if os.path.exists(log_file):
@@ -50,6 +55,13 @@ class SplitAudio:
             level="INFO",
         )
         logger.info("Initialized AudioProcessor")
+
+    @staticmethod
+    def load_config(path: str) -> Dict[str, Any]:
+        if not os.path.isfile(path):
+            raise FileNotFoundError(f"Config file not found: {path}")
+        with open(path, "r", encoding="utf-8") as f:
+            return yaml.safe_load(f)
 
     def read_wave(self, path: str) -> tuple[bytes, int]:
         """Reads an audio file and returns PCM audio data and sample rate."""
@@ -95,7 +107,7 @@ class SplitAudio:
 
         info = []
         current_time, silence_frames = 0.0, 0
-        segment, segment_start = b"", None
+        segment_start = None
         min_silence_frames = self.min_silence_ms // self.frame_duration
 
         for frame in frames:
@@ -111,7 +123,9 @@ class SplitAudio:
                     silence_frames >= min_silence_frames
                     and segment_start is not None
                 ):
-                    segment_end = current_time
+                    segment_end = current_time - (
+                        silence_frames * self.frame_duration / 1000
+                    )
                     duration = round(segment_end - segment_start, 3)
                     if duration >= 0.2:
                         info.append(
@@ -128,7 +142,7 @@ class SplitAudio:
         if segment_start is not None:
             segment_end = current_time
             duration = round(segment_end - segment_start, 3)
-            if duration >= 0.2:
+            if duration >= self.min_segment_ms / 1000:
                 info.append(
                     (round(segment_start, 3), round(segment_end, 3), duration)
                 )
@@ -171,6 +185,28 @@ class SplitAudio:
         )
         return merged
 
+    @staticmethod
+    def cut_with_ffmpeg(
+        wav_path: str, out_path: str, start_sec: float, end_sec: float
+    ):
+        """cut audio segments using ffmpeg"""
+        command = [
+            "ffmpeg",
+            "-y",  # overwrite
+            "-ss",
+            str(start_sec),
+            "-to",
+            str(end_sec),
+            "-i",
+            wav_path,
+            "-acodec",
+            "copy",  # no re-encoding
+            f"{out_path}",
+        ]
+        subprocess.run(
+            command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        )
+
     def cut_audio(
         self,
         wav_path: str,
@@ -178,20 +214,29 @@ class SplitAudio:
         segments: list[tuple[float, float, float]],
     ) -> None:
         """Cuts and exports segments as individual audio files."""
-        audio = AudioSegment.from_file(wav_path)
-        output_dir_path = os.path.join(save_path, self.output_dir)
-        os.makedirs(output_dir_path, exist_ok=True)
 
-        for i, (start_sec, end_sec, duration) in enumerate(segments):
-            cut = audio[int(start_sec * 1000) : int(end_sec * 1000)]
-            out_path = os.path.join(
-                output_dir_path,
-                f"{self.segment_name}{i + 1}.{self.file_format}",
+        def process_segment(i, start_sec, end_sec, duration):
+            # Decide folder for this segment
+            if self.segment_subfolders:
+                segment_folder = os.path.join(save_path, f"segment_{i+1}")
+                os.makedirs(segment_folder, exist_ok=True)
+            else:
+                segment_folder = save_path
+                os.makedirs(segment_folder, exist_ok=True)
+
+            out_file = os.path.join(
+                segment_folder, f"{self.segment_name}_{i+1}.{self.file_format}"
             )
-            cut.export(out_path, format=self.file_format)
+
+            self.cut_with_ffmpeg(
+                wav_path=wav_path,
+                out_path=out_file,
+                start_sec=start_sec,
+                end_sec=end_sec,
+            )
+
             csv_out_path = os.path.join(
-                output_dir_path,
-                f"{self.segment_name}{i + 1}.csv",
+                segment_folder, f"{self.segment_name}_{i+1}.csv"
             )
             with open(csv_out_path, "w", encoding="utf-8") as f:
                 writer = csv.writer(f)
@@ -205,10 +250,16 @@ class SplitAudio:
                     ]
                 )
                 writer.writerow(
-                    [save_path, out_path, start_sec, end_sec, duration]
+                    [segment_folder, out_file, start_sec, end_sec, duration]
                 )
 
-        logger.info(f"Exported {len(segments)} segments → {output_dir_path}")
+        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+            for i, (start, end, dur) in enumerate(segments):
+                executor.submit(process_segment, i, start, end, dur)
+
+        logger.info(
+            f"Exported {len(segments)} segments → {save_path} (threads={self.max_workers})"
+        )
 
     # ------ clean folder ------------
     def clear_temp_files(self):
@@ -242,27 +293,52 @@ class SplitAudio:
         path = self.resample(wav_path) if self.resample_enabled else wav_path
         segments = self.split_audio_vad(path)
         merged = self.merge_segments(segments)
-        self.cut_audio(wav_path=path, save_path=save_path, segments=merged)
+        self.cut_audio(wav_path=wav_path, save_path=save_path, segments=merged)
         logger.info(f"Processed file {wav_path}")
 
     def process_all(self):
         """Run processing on all WAV files in subfolders."""
-        folders = find_folders(self.root_dir)
-        logger.info(f"Found {len(folders)} folders in {self.root_dir}")
+        os.makedirs(self.output_dir, exist_ok=True)
 
-        for folder in folders:
-            folder_path = os.path.join(self.root_dir, folder)
-            audio_files = find_files(
-                folder_path, extension=f".{self.file_format}"
-            )
-            logger.info(f"Processing {len(audio_files)} files in {folder_path}")
-            for file in audio_files:
-                try:
-                    file_stem = os.path.splitext(os.path.basename(file))[0]
-                    save_path = os.path.join(
-                        folder_path, file_stem + "_sentences"
-                    )
-                    os.makedirs(save_path, exist_ok=True)
-                    self.process_file(wav_path=file, save_path=save_path)
-                except Exception as e:
-                    logger.error(f"Failed to process {file}: {e}")
+        logger.info(f"Scanning {self.root_dir} for audio files...")
+        audio_files = []
+        for dirpath, _, files in os.walk(self.root_dir):
+            for f in files:
+                if f.lower().endswith(self.file_format):
+                    audio_files.append(os.path.join(dirpath, f))
+        logger.info(f"Found {len(audio_files)} audio files to process")
+
+        def process_one(file_path):
+            try:
+                rel_path = os.path.relpath(
+                    os.path.dirname(file_path), self.root_dir
+                )
+                rel_output_dir = os.path.join(self.output_dir, rel_path)
+                os.makedirs(rel_output_dir, exist_ok=True)
+
+                file_stem = Path(file_path).stem
+                base_save_dir = os.path.join(
+                    rel_output_dir, f"{file_stem}_{self.segment_name}"
+                )
+
+                if self.segment_subfolders:
+                    # If segments get subfolders, just pass the base path;
+                    # cut_audio will create numbered segment folders internally
+                    save_dir = base_save_dir
+                else:
+                    # All segments go into a single folder
+                    save_dir = base_save_dir
+                    os.makedirs(save_dir, exist_ok=True)
+
+                # Pass the actual folder path (save_dir) to process_file
+                self.process_file(wav_path=file_path, save_path=save_dir)
+                logger.info(f"Done: {file_path}")
+
+            except Exception as e:
+                logger.error(f"Failed to process {file_path}: {e}")
+
+        # Parallel processing
+        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+            list(executor.map(process_one, audio_files))
+
+        logger.info(f"Finished processing {len(audio_files)} files total.")
