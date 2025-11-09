@@ -20,7 +20,8 @@ processing:
   min_len: 0.0
   segment_name: "segment"
   max_workers: 8
-  segment_subfolders: True
+  segment_subfolders: False
+  batch_size: 10
 
 silence_trim:
   threshold: 0.05

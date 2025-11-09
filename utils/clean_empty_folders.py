@@ -134,8 +134,21 @@ class CleanEmptyFolders:
         self.delete_folders_without_files()
 
 
+def timer(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f"{func.__name__} runtime: {end - start:.2f} seconds")
+        return result
+
+    return wrapper
+
+
 if __name__ == "__main__":
     cleaner = CleanEmptyFolders(root_dir="audio_files_1_sentences_trans", extension="wav")
+    cleaner.delete_folders_without_files()
 
     # cleaner.process_all()
 
