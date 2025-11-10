@@ -1,4 +1,4 @@
-from split_audio_v3 import SplitAudio
+from split_audio_v4 import SplitAudio
 import os
 import csv
 from pathlib import Path
@@ -20,7 +20,7 @@ def timer(func):
 
 @timer
 def main():
-    processor = SplitAudio(config_path="config.yaml")
+    processor = SplitAudio(config_path="configs/split_config.yaml")
     processor.clear_segment_folders()
     processor.process_all()
     # processor.process_file(

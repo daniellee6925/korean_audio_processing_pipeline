@@ -1,0 +1,21 @@
+
+paths:
+  root_dir: "archive"
+  output_dir: "audio_sentences"
+  temp_dir: "temp"
+
+vad:
+  aggressiveness: 2  # 0-3
+  min_silence_ms: 1000
+  min_segment_ms: 200
+  sample_rate: 16000
+  resample: True
+  frame_duration: 30
+  file_format: "wav"
+
+processing:
+  min_len: 0.0
+  segment_name: "segment"
+  max_workers: 8
+  segment_subfolders: False
+  batch_size: 10

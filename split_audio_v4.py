@@ -6,7 +6,7 @@ import contextlib
 import webrtcvad
 import shutil
 import ffmpeg
-from multiprocessing import Pool, cpu_count
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from tqdm import tqdm
 from loguru import logger
 from typing import List, Tuple, Dict, Any
@@ -17,7 +17,7 @@ from pathlib import Path
 class SplitAudio:
     """Encapsulates audio resampling, VAD segmentation, and cutting."""
 
-    def __init__(self, config_path: str = "config.yaml"):
+    def __init__(self, config_path: str = "split_config.yaml"):
         self.config = self.load_config(config_path)
         path_config = self.config["paths"]
         vad_config = self.config["vad"]
@@ -33,14 +33,13 @@ class SplitAudio:
         self.min_silence_ms = vad_config.get("min_silence_ms", 1000)
         self.min_segment_ms = vad_config.get("min_segment_ms", 200.0)
         self.sample_rate = vad_config.get("sample_rate", 16000)
-        self.resample_enabled = vad_config.get("resample", True)
         self.frame_duration = vad_config.get("frame_duration", 30)
         self.file_format = vad_config.get("file_format", "wav")
 
         # Processing
         self.min_len = processing_config.get("min_len", 0.0)
         self.segment_name = processing_config.get("segment_name", "segment")
-        self.max_workers = processing_config.get("max_workers", cpu_count())
+        self.max_workers = processing_config.get("max_workers", os.cpu_count())
         self.segment_subfolders = processing_config.get("segment_subfolders", False)
         self.batch_size = processing_config.get("batch_size", 10)  # New: segments per FFmpeg call
 
@@ -194,7 +193,7 @@ class SplitAudio:
     def cut_segments_batch(
         self, wav_path: str, batch_segments: List[Tuple[int, str, float, float]]
     ) -> None:
-        """Cut multiple segments using a single FFmpeg command with filter_complex."""
+        """Cut multiple segments using a single FFmpeg command, preserving original quality."""
         if not batch_segments:
             return
 
@@ -215,14 +214,12 @@ class SplitAudio:
             # Join all filter parts
             filter_complex = ";".join(filter_parts)
 
-            # Build output mapping
+            # Build output mapping - use copy codec to preserve original quality
             outputs = {}
             for label, out_file in output_files:
                 outputs[out_file] = {
                     "map": label,
-                    "acodec": "pcm_s16le",
-                    "ar": self.sample_rate,
-                    "ac": 1,
+                    "acodec": "copy",  # Preserve original codec/quality
                 }
 
             # Run FFmpeg with filter_complex
@@ -230,9 +227,7 @@ class SplitAudio:
                 input_stream,
                 *[f for f in outputs.keys()],
                 filter_complex=filter_complex,
-                acodec="pcm_s16le",
-                ar=self.sample_rate,
-                ac=1,
+                acodec="copy",  # Preserve original codec/quality
                 loglevel="error",
             )
 
@@ -245,11 +240,11 @@ class SplitAudio:
                 self.cut_single_segment(wav_path, out_file, start, end)
 
     def cut_single_segment(self, wav_path: str, out_file: str, start: float, end: float) -> None:
-        """Cut a single segment using ffmpeg-python."""
+        """Cut a single segment using ffmpeg-python, preserving original format."""
         try:
             stream = ffmpeg.input(wav_path, ss=start, to=end)
             stream = ffmpeg.output(
-                stream, out_file, acodec="pcm_s16le", ar=self.sample_rate, ac=1, loglevel="error"
+                stream, out_file, acodec="copy", loglevel="error"  # Preserve original codec/quality
             )
             ffmpeg.run(stream, overwrite_output=True, capture_stdout=True, capture_stderr=True)
         except ffmpeg.Error as e:
@@ -309,7 +304,7 @@ class SplitAudio:
             logger.info(f"No temp folder found at {self.temp_dir}")
 
     def clear_segment_folders(self):
-        """Delete all *_sentences folders under root_dir recursively."""
+        """Delete all *_segment folders under root_dir recursively."""
         root_path = Path(self.root_dir)
         if not root_path.exists():
             logger.info(f"Root directory {self.root_dir} does not exist")
@@ -324,14 +319,17 @@ class SplitAudio:
 
     def process_file(self, wav_path: str, save_path: str):
         """Full pipeline for one file: resample → split → merge → cut."""
-        working_path = self.resample(wav_path) if self.resample_enabled else wav_path
-        segments = self.split_audio_vad(working_path)
+        # Resample ONLY for VAD detection 16kHz
+        vad_path = self.resample(wav_path)
+        segments = self.split_audio_vad(vad_path)
         merged = self.merge_segments(segments)
-        self.cut_audio(wav_path=working_path, save_path=save_path, segments=merged)
+
+        # Cut from ORIGINAL file to preserve quality and sample rate
+        self.cut_audio(wav_path=wav_path, save_path=save_path, segments=merged)
         logger.info(f"Processed file {wav_path}")
 
     def process_all(self):
-        """Run processing on all WAV files using multiprocessing."""
+        """Run processing on all WAV files using ProcessPoolExecutor."""
         os.makedirs(self.output_dir, exist_ok=True)
 
         logger.info(f"Scanning {self.root_dir} for audio files...")
@@ -342,7 +340,7 @@ class SplitAudio:
                     audio_files.append(os.path.join(dirpath, f))
         logger.info(f"Found {len(audio_files)} audio files to process")
 
-        # Prepare arguments for multiprocessing
+        # Prepare arguments for parallel processing
         process_args = []
         for file_path in audio_files:
             rel_path = os.path.relpath(os.path.dirname(file_path), self.root_dir)
@@ -352,21 +350,31 @@ class SplitAudio:
 
             process_args.append((file_path, base_save_dir))
 
-        # Use multiprocessing for CPU-bound VAD work
-        with Pool(processes=self.max_workers) as pool:
-            results = list(
-                tqdm(
-                    pool.imap_unordered(self._process_wrapper, process_args),
-                    total=len(process_args),
-                    desc="Processing files",
-                )
-            )
+        # Use ProcessPoolExecutor for CPU-bound VAD work
+        with ProcessPoolExecutor(max_workers=self.max_workers) as executor:
+            # Submit all tasks
+            future_to_args = {
+                executor.submit(self._process_wrapper, args): args for args in process_args
+            }
 
-        success_count = sum(results)
+            # Process completed tasks with progress bar
+            success_count = 0
+            with tqdm(total=len(process_args), desc="Processing files") as pbar:
+                for future in as_completed(future_to_args):
+                    try:
+                        result = future.result()
+                        if result:
+                            success_count += 1
+                    except Exception as e:
+                        args = future_to_args[future]
+                        logger.error(f"Task failed for {args[0]}: {e}")
+                    finally:
+                        pbar.update(1)
+
         logger.info(f"Finished: {success_count}/{len(audio_files)} files processed successfully.")
 
     def _process_wrapper(self, args):
-        """Wrapper function for multiprocessing."""
+        """Wrapper function for parallel processing."""
         file_path, base_save_dir = args
         try:
             os.makedirs(base_save_dir, exist_ok=True)
