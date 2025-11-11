@@ -72,8 +72,8 @@ class AudioConverter:
 # ----------------- Usage -----------------
 if __name__ == "__main__":
     converter = AudioConverter(
-        folder_path="audio_files_2",
-        output_format="flac",
+        folder_path="audio_files_1 copy",
+        output_format="wav",
         remove_org=False,
         use_multiprocessing=True,  # set to False to disable
         max_workers=8,  # number of parallel processes

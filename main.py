@@ -1,4 +1,4 @@
-from split_audio_v4 import SplitAudio
+from split_audio_v3 import SplitAudio
 import os
 import csv
 from pathlib import Path

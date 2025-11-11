@@ -18,3 +18,5 @@ pynini==2.1.7
 pytest
 pre-commit==3.5.0
 soundfile==0.13.1
+librosa==0.11.0
+pandas==2.3.3 

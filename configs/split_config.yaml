@@ -1,13 +1,13 @@
 
 paths:
-  root_dir: "archive"
-  output_dir: "audio_sentences"
+  root_dir: "1107_Recording/180101_020.TAKE"
+  output_dir: "out"
   temp_dir: "temp"
 
 vad:
   aggressiveness: 2  # 0-3
-  min_silence_ms: 1000
-  min_segment_ms: 200
+  min_silence_ms: 1100
+  min_segment_ms: 1000
   sample_rate: 16000
   resample: True
   frame_duration: 30
@@ -17,5 +17,5 @@ processing:
   min_len: 0.0
   segment_name: "segment"
   max_workers: 8
-  segment_subfolders: False
+  segment_subfolders: True
   batch_size: 10

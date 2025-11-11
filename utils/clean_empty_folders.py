@@ -1,155 +1,53 @@
 from pathlib import Path
-from loguru import logger
-from tqdm import tqdm
+import shutil
 
 
-class CleanEmptyFolders:
+def remove_empty_non_wav_folders(root_dir: str):
+    """
+    Remove all subfolders under root_dir that do not contain any .wav files.
+    Returns a summary dictionary with counts and deleted folder paths.
+    """
+    root_path = Path(root_dir)
+    if not root_path.exists():
+        raise ValueError(f"Directory does not exist: {root_dir}")
 
-    def __init__(self, root_dir: str, extension: str = "wav"):
-        """
-        Args:
-            root_dir (str): Root directory to clean.
-            extension (str): Audio file extension to keep (e.g., "wav").
-        """
-        self.root_dir = Path(root_dir)
-        self.audio_extension = f".{extension.lower()}"
+    deleted_folders = []
+    kept_folders = []
 
-        if not self.root_dir.exists():
-            raise ValueError(f"Root directory does not exist: {self.root_dir}")
+    # rglob for directories only (bottom-up traversal is safer for deletion)
+    for folder in sorted(root_path.rglob("*"), reverse=True):
+        if folder.is_dir():
+            # Check if folder contains any .wav files (recursively only in this folder, not subfolders)
+            has_wav = any(f.suffix.lower() == ".wav" for f in folder.iterdir() if f.is_file())
 
-    def get_depth(self, path: Path) -> int:
-        """Calculate the depth of a path relative to root_dir."""
-        try:
-            relative = path.relative_to(self.root_dir)
-            return len(relative.parts)
-        except ValueError:
-            return -1
+            if not has_wav:
+                shutil.rmtree(folder)
+                deleted_folders.append(str(folder))
+            else:
+                kept_folders.append(str(folder))
 
-    def find_max_depth(self) -> int:
-        """Find the maximum depth of all folders in the directory tree."""
-        max_depth = 0
-        for item in self.root_dir.rglob("*"):
-            if item.is_dir():
-                depth = self.get_depth(item)
-                max_depth = max(max_depth, depth)
-        return max_depth
+    # Build summary
+    summary = {
+        "root_dir": str(root_path),
+        "total_folders_scanned": len(deleted_folders) + len(kept_folders),
+        "folders_deleted": len(deleted_folders),
+        "folders_kept": len(kept_folders),
+        "deleted_folder_paths": deleted_folders,
+        "kept_folder_paths": kept_folders,
+    }
 
-    def has_any_files(self, folder: Path) -> bool:
-        """Check if a folder contains any files (at any level)."""
-        return any(item.is_file() for item in folder.rglob("*"))
+    # Print summary
+    print("\n" + "=" * 50)
+    print("REMOVE NON-WAV FOLDER SUMMARY")
+    print("=" * 50)
+    print(f"Root Directory: {summary['root_dir']}")
+    print(f"Total Folders Scanned: {summary['total_folders_scanned']}")
+    print(f"Folders Deleted: {summary['folders_deleted']}")
+    print(f"Folders Kept: {summary['folders_kept']}")
+    print("=" * 50 + "\n")
 
-    def delete_folders_without_files(self) -> None:
-        """
-        Delete all folders that do not contain any files at the end (deepest level).
-        Works from deepest to shallowest to handle nested empty folders.
-        """
-        max_depth = self.find_max_depth()
-
-        if max_depth == 0:
-            logger.warning("No subfolders found in root directory")
-            return
-
-        logger.info(f"Scanning for folders without files (max depth: {max_depth})")
-
-        removed_count = 0
-
-        # Process from deepest to shallowest to handle cascading deletions
-        for depth in range(max_depth, 0, -1):
-            all_folders = [f for f in self.root_dir.rglob("*") if f.is_dir()]
-            folders_at_depth = [f for f in all_folders if self.get_depth(f) == depth]
-
-            for folder in tqdm(folders_at_depth, desc=f"Checking folders at depth {depth}"):
-                if not self.has_any_files(folder):
-                    try:
-                        # Remove all subdirectories
-                        for subdir in sorted(folder.rglob("*"), reverse=True):
-                            if subdir.is_dir():
-                                try:
-                                    subdir.rmdir()
-                                except OSError:
-                                    pass
-
-                        # Remove the folder itself
-                        folder.rmdir()
-                        removed_count += 1
-                        logger.info(f"Removed empty folder: {folder}")
-                    except OSError as e:
-                        logger.warning(f"Could not remove {folder}: {e}")
-
-        logger.info(f"Finished. Total empty folders removed: {removed_count}")
-
-    def delete_files(self) -> None:
-        """
-        Automatically detect the deepest level and delete folders at that level
-        that contain no audio files with the allowed extension.
-        """
-        # Automatically find the deepest level
-        target_depth = self.find_max_depth()
-
-        if target_depth == 0:
-            logger.warning("No subfolders found in root directory")
-            return
-
-        logger.info(f"Automatically detected target depth: {target_depth}")
-
-        removed_count = 0
-
-        # Get all folders at the target depth
-        all_folders = [f for f in self.root_dir.rglob("*") if f.is_dir()]
-        target_folders = [f for f in all_folders if self.get_depth(f) == target_depth]
-
-        logger.info(f"Found {len(target_folders)} folders at depth {target_depth}")
-
-        for folder in tqdm(target_folders, desc=f"Cleaning folders at depth {target_depth}"):
-            has_audio = any(
-                f.is_file() and f.suffix.lower() == self.audio_extension for f in folder.rglob("*")
-            )
-
-            if has_audio:
-                continue
-            try:
-                for item in folder.rglob("*"):
-                    if item.is_file():
-                        item.unlink()
-
-                for subdir in sorted(folder.rglob("*"), reverse=True):
-                    if subdir.is_dir():
-                        try:
-                            subdir.rmdir()
-                        except OSError:
-                            pass
-
-                folder.rmdir()
-                removed_count += 1
-                logger.info(f"Removed: {folder}")
-            except OSError as e:
-                logger.warning(f"Could not remove {folder}: {e}")
-
-        logger.info(
-            f"Finished cleaning. Total folders removed at depth {target_depth}: {removed_count}"
-        )
-
-    def process_all(self):
-        self.delete_files()
-        self.delete_folders_without_files()
-
-
-def timer(func):
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        start = time.time()
-        result = func(*args, **kwargs)
-        end = time.time()
-        print(f"{func.__name__} runtime: {end - start:.2f} seconds")
-        return result
-
-    return wrapper
+    return summary
 
 
 if __name__ == "__main__":
-    cleaner = CleanEmptyFolders(root_dir="audio_files_1_sentences_trans", extension="wav")
-    cleaner.delete_folders_without_files()
-
-    # cleaner.process_all()
-
-    cleaner.delete_folders_without_files()
+    summary = remove_empty_non_wav_folders("voice_casting")
