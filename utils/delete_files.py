@@ -21,4 +21,4 @@ def delete_files_by_extension(root_dir: str, extension: str):
 
 
 if __name__ == "__main__":
-    delete_files_by_extension("voice_pick", "json")
+    delete_files_by_extension("Korean_Voice_Bank", "csv")

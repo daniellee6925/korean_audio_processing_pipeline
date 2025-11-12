@@ -190,65 +190,25 @@ class SplitAudio:
         logger.info(f"Merged into {len(merged)} segments (min_len={self.min_len}s)")
         return merged
 
-    def cut_segments_batch(
-        self, wav_path: str, batch_segments: List[Tuple[int, str, float, float]]
+    def cut_segments(
+        self, wav_path: str, segments_to_cut: List[Tuple[int, str, float, float]]
     ) -> None:
-        """Cut multiple segments using a single FFmpeg command, preserving original quality."""
-        if not batch_segments:
+        """Cut multiple segments sequentially, preserving original quality."""
+        if not segments_to_cut:
             return
 
-        try:
-            input_stream = ffmpeg.input(wav_path)
-
-            # Build filter complex for multiple segments
-            filter_parts = []
-            output_files = []
-
-            for idx, (seg_idx, out_file, start, end) in enumerate(batch_segments):
-                # Create trim filter for each segment
-                filter_parts.append(
-                    f"[0:a]atrim=start={start}:end={end},asetpts=PTS-STARTPTS[out{idx}]"
+        for seg_idx, out_file, start, end in segments_to_cut:
+            try:
+                stream = ffmpeg.input(wav_path, ss=start, to=end)
+                stream = ffmpeg.output(
+                    stream,
+                    out_file,
+                    acodec="copy",  # Preserve original codec/quality
+                    loglevel="error",
                 )
-                output_files.append((f"[out{idx}]", out_file))
-
-            # Join all filter parts
-            filter_complex = ";".join(filter_parts)
-
-            # Build output mapping - use copy codec to preserve original quality
-            outputs = {}
-            for label, out_file in output_files:
-                outputs[out_file] = {
-                    "map": label,
-                    "acodec": "copy",  # Preserve original codec/quality
-                }
-
-            # Run FFmpeg with filter_complex
-            stream = ffmpeg.output(
-                input_stream,
-                *[f for f in outputs.keys()],
-                filter_complex=filter_complex,
-                acodec="copy",  # Preserve original codec/quality
-                loglevel="error",
-            )
-
-            ffmpeg.run(stream, overwrite_output=True, capture_stdout=True, capture_stderr=True)
-
-        except ffmpeg.Error as e:
-            logger.error(f"FFmpeg batch cutting error: {e.stderr.decode()}")
-            # Fallback to individual cuts
-            for seg_idx, out_file, start, end in batch_segments:
-                self.cut_single_segment(wav_path, out_file, start, end)
-
-    def cut_single_segment(self, wav_path: str, out_file: str, start: float, end: float) -> None:
-        """Cut a single segment using ffmpeg-python, preserving original format."""
-        try:
-            stream = ffmpeg.input(wav_path, ss=start, to=end)
-            stream = ffmpeg.output(
-                stream, out_file, acodec="copy", loglevel="error"  # Preserve original codec/quality
-            )
-            ffmpeg.run(stream, overwrite_output=True, capture_stdout=True, capture_stderr=True)
-        except ffmpeg.Error as e:
-            logger.error(f"FFmpeg single cut error for {out_file}: {e.stderr.decode()}")
+                ffmpeg.run(stream, overwrite_output=True, capture_stdout=True, capture_stderr=True)
+            except ffmpeg.Error as e:
+                logger.error(f"FFmpeg cut error for {out_file}: {e.stderr.decode()}")
 
     def cut_audio(
         self,
@@ -258,7 +218,7 @@ class SplitAudio:
     ) -> None:
         """Cuts and exports segments using batched FFmpeg calls."""
         segment_data = []
-        batch_segments = []
+        segments_to_cut = []
 
         for i, (start_sec, end_sec, duration) in enumerate(segments):
             if self.segment_subfolders:
@@ -270,17 +230,11 @@ class SplitAudio:
             out_file = os.path.join(segment_folder, f"{self.segment_name}_{i+1}.{self.file_format}")
 
             # Add to batch
-            batch_segments.append((i, out_file, start_sec, end_sec))
+            segments_to_cut.append((i, out_file, start_sec, end_sec))
             segment_data.append([segment_folder, out_file, start_sec, end_sec, duration])
 
-            # Process batch when full
-            if len(batch_segments) >= self.batch_size:
-                self.cut_segments_batch(wav_path, batch_segments)
-                batch_segments = []
-
-        # Process remaining segments
-        if batch_segments:
-            self.cut_segments_batch(wav_path, batch_segments)
+        if segments_to_cut:
+            self.cut_segments(wav_path, segments_to_cut)
 
         # Write consolidated CSV
         csv_path = os.path.join(save_path, f"{self.segment_name}_all.csv")

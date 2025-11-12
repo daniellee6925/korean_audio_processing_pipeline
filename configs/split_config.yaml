@@ -1,12 +1,12 @@
 
 paths:
-  root_dir: "1107_Recording/180101_020.TAKE"
-  output_dir: "out"
+  root_dir: "data/wavs_20250416_012741"
+  output_dir: "data/wavs_20250416_012741_splits"
   temp_dir: "temp"
 
 vad:
   aggressiveness: 2  # 0-3
-  min_silence_ms: 1100
+  min_silence_ms: 400
   min_segment_ms: 1000
   sample_rate: 16000
   resample: True

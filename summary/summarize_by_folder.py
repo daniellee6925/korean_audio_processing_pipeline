@@ -4,6 +4,10 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 from collections import defaultdict
 import json
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from threading import Lock
+import soundfile as sf
+from loguru import logger
 
 
 class AudioDirectorySummary:
@@ -11,85 +15,80 @@ class AudioDirectorySummary:
     Generates summary statistics for audio files in a directory structure.
     """
 
-    def __init__(self):
-        """Initialize the summary calculator."""
-        pass
+    def __init__(
+        self,
+        root_dir: str,
+        extensions: tuple = (".wav"),
+        save_json: bool = False,
+        json_output: str = "audio_summary.json",
+        max_workers: int = 8,
+    ):
+        self.root_dir = root_dir
+        self.extensions = extensions
+        self.save_json = save_json
+        self.json_output = json_output
+        self.max_workers = max_workers
+        self._print_lock = Lock()
 
-    def get_audio_duration(self, filepath: str) -> float:
-        """
-        Get audio duration in seconds.
+    def _process_audio_file(self, filepath: str) -> Tuple[str, float, int, str]:
+        duration = self.get_audio_duration(filepath=filepath)
+        size = self.get_file_size(filepath=filepath)
+        ext = Path(filepath).suffix.lower()
 
-        Args:
-            filepath: Path to audio file
+        return (filepath, duration, size, ext)
 
-        Returns:
-            Duration in seconds
-        """
+    @staticmethod
+    def get_audio_duration(filepath: str) -> float:
         try:
-            duration = librosa.get_duration(path=filepath)
-            return duration
+            info = sf.info(file=filepath)
+            return info.duration
         except Exception as e:
-            print(f"Warning: Could not get duration for {filepath}: {e}")
+            logger.error(f"Warning: Could not get duration for {filepath}: {e}")
             return 0.0
 
-    def get_file_size(self, filepath: str) -> int:
-        """
-        Get file size in bytes.
-
-        Args:
-            filepath: Path to file
-
-        Returns:
-            File size in bytes
-        """
+    @staticmethod
+    def get_file_size(filepath: str) -> int:
         try:
-            return os.path.getsize(filepath)
-        except Exception:
+            return os.path.getsize(filename=filepath)
+        except Exception as e:
+            logger.error(f"Warning: Could not get filesize for {filepath}: {e}")
             return 0
 
-    def format_duration(self, seconds: float) -> str:
-        """
-        Format duration in human-readable format.
+    @staticmethod
+    def format_duration(seconds: float) -> str:
+        if seconds <= 0 or seconds != seconds:  # Check for 0, negative, or NaN
+            return "0s"
 
-        Args:
-            seconds: Duration in seconds
-
-        Returns:
-            Formatted string (e.g., "2h 30m 45s")
-        """
         hours = int(seconds // 3600)
         minutes = int((seconds % 3600) // 60)
-        secs = int(seconds % 60)
+        seconds = int(seconds % 60)
 
         parts = []
         if hours > 0:
             parts.append(f"{hours}h")
         if minutes > 0:
             parts.append(f"{minutes}m")
-        if secs > 0 or not parts:
-            parts.append(f"{secs}s")
+        if seconds > 0 or not parts:
+            parts.append(f"{seconds}s")
 
-        return " ".join(parts)
+        return "".join(parts)
 
-    def format_size(self, bytes: int) -> str:
-        """
-        Format file size in human-readable format.
+    @staticmethod
+    def format_size(bytes: int) -> str:
+        if bytes <= 0:
+            return "0.00 B"
 
-        Args:
-            bytes: Size in bytes
+        size = float(bytes)
 
-        Returns:
-            Formatted string (e.g., "1.5 GB")
-        """
         for unit in ["B", "KB", "MB", "GB", "TB"]:
-            if bytes < 1024.0:
-                return f"{bytes:.2f} {unit}"
-            bytes /= 1024.0
-        return f"{bytes:.2f} PB"
+            if size < 1024.0:
+                return f"{size:.2f} {unit}"
+            size /= 1024.0
+
+        return f"{size:.2f} PB"
 
     def generate_summary(
         self,
-        root_dir: str,
         extensions: tuple = (".wav", ".mp3", ".flac", ".ogg", ".m4a"),
         save_json: bool = False,
         json_output: str = "audio_summary.json",
@@ -106,12 +105,13 @@ class AudioDirectorySummary:
         Returns:
             Dictionary with summary statistics
         """
-        root_path = Path(root_dir)
+        root_path = Path(self.root_dir)
 
         if not root_path.exists():
-            raise ValueError(f"Directory does not exist: {root_dir}")
+            raise ValueError(f"Directory does not exist: {self.root_dir}")
 
-        print(f"Analyzing audio files in: {root_dir}")
+        print(f"Analyzing audio files in: {self.root_dir}")
+        print(f"Using ThreadPoolExecutor with max_workers={self.max_workers or 'auto'}")
         print("=" * 70)
 
         # Initialize counters
@@ -129,55 +129,82 @@ class AudioDirectorySummary:
         subdirs = [d for d in root_path.iterdir() if d.is_dir()]
         total_folders = len(subdirs)
 
-        print(f"Found {total_folders} folders. Processing...\n")
+        logger.info(f"Found {total_folders} folders. Processing...\n")
 
-        for i, subdir in enumerate(sorted(subdirs), 1):
+        all_files_info = []
+        for subdir in sorted(subdirs):
             voice_idx = subdir.name
-            print(f"[{i}/{total_folders}] Processing folder: {voice_idx}")
-
-            # Find all audio files in this subdirectory
             audio_files = []
             for ext in extensions:
                 audio_files.extend(subdir.glob(f"*{ext}"))
-
-            folder_duration = 0.0
-            folder_size = 0
-            folder_file_count = len(audio_files)
-
-            # Process each audio file
             for audio_file in audio_files:
-                duration = self.get_audio_duration(str(audio_file))
-                size = self.get_file_size(str(audio_file))
-                ext = audio_file.suffix.lower()
+                all_files_info.append((str(audio_file), voice_idx))
 
-                # Update totals
-                total_duration += duration
-                total_size += size
-                folder_duration += duration
-                folder_size += size
+        file_paths = [info[0] for info in all_files_info]
+        filepath_to_folder = {info[0]: info[1] for info in all_files_info}
 
-                # Track by extension
-                extension_stats[ext]["count"] += 1
-                extension_stats[ext]["duration"] += duration
-                extension_stats[ext]["size"] += size
+        results = []
+        completed = 0
 
-                # Track individual durations and sizes
-                durations.append(duration)
-                sizes.append(size)
+        total_files = len(file_paths)
+        logger.info(f"Found {total_files} total files to process.\n")
 
-            total_files += folder_file_count
+        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+            future_to_path = {
+                executor.submit(self._process_audio_file, path): path for path in file_paths
+            }
+            for future in as_completed(future_to_path):
+                try:
+                    result = future.result()
+                    results.append(result)
+                    completed += 1
 
-            # Store folder statistics
-            folder_stats[voice_idx] = {
-                "file_count": folder_file_count,
-                "total_duration": folder_duration,
-                "total_size": folder_size,
-                "avg_duration": folder_duration / folder_file_count if folder_file_count > 0 else 0,
-                "avg_size": folder_size / folder_file_count if folder_file_count > 0 else 0,
+                    if completed % 100 == 0 or completed == total_files:
+                        logger.info(
+                            f"  Processed {completed}/{total_files} files ({completed*100//total_files}%)"
+                        )
+                except Exception as e:
+                    path = future_to_path[future]
+                    logger.error(f"Error processing {path}: {e}")
+
+        # initialize folder stats
+        for subdir in sorted(subdirs):
+            folder_stats[subdir.name] = {
+                "file_count": 0,
+                "total_duration": 0.0,
+                "total_size": 0,
+                "avg_duration": 0.0,
+                "avg_size": 0,
             }
 
-            print(
-                f"  Files: {folder_file_count}, Duration: {self.format_duration(folder_duration)}, Size: {self.format_size(folder_size)}"
+        for filepath, duration, size, ext in results:
+            folder_name = filepath_to_folder[filepath]
+
+            total_duration += duration
+            total_size += size
+
+            extension_stats[ext]["count"] += 1
+            extension_stats[ext]["duration"] += duration
+            extension_stats[ext]["size"] += size
+
+            durations.append(duration)
+            sizes.append(size)
+
+            folder_stats[folder_name]["file_count"] += 1
+            folder_stats[folder_name]["total_duration"] += duration
+            folder_stats[folder_name]["total_size"] += size
+
+        for folder_name, stats in folder_stats.items():
+            if stats["file_count"] > 0:
+                stats["avg_duration"] = stats["total_duration"] / stats["file_count"]
+                stats["avg_size"] = stats["total_size"] / stats["file_count"]
+
+        # Print folder summaries
+        logger.info("Folder Summaries:")
+        for i, (folder_name, stats) in enumerate(sorted(folder_stats.items()), 1):
+            logger.info(
+                f"[{i}/{total_folders}] {folder_name}: {stats['file_count']} files, "
+                f"{self.format_duration(stats['total_duration'])}, {self.format_size(stats['total_size'])}"
             )
 
         # Calculate statistics
@@ -203,7 +230,7 @@ class AudioDirectorySummary:
 
         # Create summary dictionary
         summary = {
-            "root_directory": str(root_dir),
+            "root_directory": str(self.root_dir),
             "total_folders": total_folders,
             "total_files": total_files,
             "total_duration_seconds": round(total_duration, 2),
@@ -270,10 +297,10 @@ class AudioDirectorySummary:
         self.print_summary(summary)
 
         # Save to JSON if requested
-        if save_json:
-            with open(json_output, "w", encoding="utf-8") as f:
+        if self.save_json:
+            with open(self.json_output, "w", encoding="utf-8") as f:
                 json.dump(summary, f, indent=2, ensure_ascii=False)
-            print(f"\n✓ Summary saved to: {json_output}")
+            print(f"\n✓ Summary saved to: {self.json_output}")
 
         return summary
 
@@ -293,7 +320,7 @@ class AudioDirectorySummary:
         print(f"  Total Audio Files: {summary['total_files']}")
         print(f"  Average Files per Folder: {summary['files_per_folder']:.2f}")
 
-        print(f"\n⏱Duration:")
+        print(f"\nDuration:")
         print(
             f"  Total Duration: {summary['total_duration_formatted']} ({summary['total_duration_seconds']:.2f}s)"
         )
@@ -343,15 +370,15 @@ class AudioDirectorySummary:
 # Example usage
 if __name__ == "__main__":
     # Initialize summarizer
-    summarizer = AudioDirectorySummary()
-
-    # Generate summary
-    summary = summarizer.generate_summary(
-        root_dir="voice_pick",
+    summarizer = AudioDirectorySummary(
+        root_dir="data/kmong",
         extensions=(".wav", ".mp3", ".flac"),
         save_json=True,
         json_output="audio_summary.json",
     )
+
+    # Generate summary
+    summary = summarizer.generate_summary()
 
     # Access specific statistics
     print(f"\nQuick Stats:")

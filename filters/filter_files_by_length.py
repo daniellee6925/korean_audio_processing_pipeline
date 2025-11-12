@@ -107,11 +107,11 @@ class FilterFiles:
 # ----------------- Usage Example -----------------
 if __name__ == "__main__":
     filter = FilterFiles(
-        root_dir="audio_files_1_sentences",
+        root_dir="data/wavs_20250416_012741_splits",
         file_format="wav",
-        min_dur=5.0,
-        max_dur=15.0,
+        min_dur=5.0,  # sec
+        max_dur=10.0,
         max_workers=8,
-        use_multithread=False,  # Set to False to disable multithreading
+        use_multithread=True,  # Set to False to disable multithreading
     )
     filter.process_all()

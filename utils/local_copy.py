@@ -45,9 +45,10 @@ class RsyncCopier:
 if __name__ == "__main__":
     copier = RsyncCopier(
         remote_user_host="daniel@a100-4",
-        remote_path="/fsx/workspace/daniel/whisper/audio_files_1_sentences",
+        remote_path="/fsx/workspace/daniel/whisper/Recording_251111_2",
         local_path="/Users/daniel/desktop/projects/local_copy",
     )
 
     # Copy only .txt files modified after Nov 1, 2025
-    copier.process_all(include_types=["*.txt"], modified_after=datetime(2025, 11, 1))
+    # ["*.txt"]
+    copier.process_all(include_types=["*"], modified_after=datetime(2025, 11, 1))

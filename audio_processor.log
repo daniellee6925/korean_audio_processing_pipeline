@@ -1,0 +1,6 @@
+2025-11-12 13:02:52.186 | INFO     | split_audio.split_audio_long_confing:__init__:60 - Initialized AudioProcessor with 8 workers
+2025-11-12 13:02:52.186 | INFO     | split_audio.split_audio_long_confing:clear_segment_folders:272 - Cleared 0 *_sentences folders under data/wavs_20250416_012741
+2025-11-12 13:02:52.186 | INFO     | split_audio.split_audio_long_confing:process_all:289 - Scanning data/wavs_20250416_012741 for audio files...
+2025-11-12 13:02:52.186 | INFO     | split_audio.split_audio_long_confing:process_all:295 - Found 196 audio files to process
+2025-11-12 13:05:41.412 | INFO     | split_audio.split_audio_long_confing:process_all:328 - Finished: 196/196 files processed successfully.
+2025-11-12 13:05:41.611 | INFO     | split_audio.split_audio_long_confing:clear_temp_files:256 - Cleared all temp files in temp

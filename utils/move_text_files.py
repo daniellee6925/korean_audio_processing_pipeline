@@ -40,7 +40,7 @@ class TxtFileOrganizer:
 
             if target_folder:
                 dest = target_folder / txt_file.name
-                shutil.move(str(txt_file), str(dest))
+                shutil.copy2(str(txt_file), str(dest))
                 moved_count += 1
                 logger.info(f"Moved {txt_file.name} → {target_folder}")
             else:

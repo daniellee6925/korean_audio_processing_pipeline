@@ -40,5 +40,5 @@ class DeleteSegmentSubdirs:
 
 
 if __name__ == "__main__":
-    cleaner = DeleteSegmentSubdirs(root_dir="1107_Recording_sentences")
+    cleaner = DeleteSegmentSubdirs(root_dir="data/wavs_20250416_012741_splits copy")
     cleaner.delete_subdirs_in_segments()

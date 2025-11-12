@@ -87,7 +87,7 @@ class ValidateSplit:
             {
                 "folder": folder,
                 "num_sentences": len(matched),
-                "avg ratio diff": f"{avg_ratio_diff:.4f}",
+                "avg_ratio_diff": f"{avg_ratio_diff:.4f}",
                 "status": status,
             }
         )
@@ -143,3 +143,8 @@ class ValidateSplit:
                 logger.error(f"Error validating folder {dirpath}: {e}")
 
         logger.success(f"Validation finished. Results saved to: {csv_path}")
+
+
+if __name__ == "__main__":
+    validator = ValidateSplit(config_path="val_config.yaml")
+    validator.process_all()
