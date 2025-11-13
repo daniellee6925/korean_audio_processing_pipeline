@@ -3,6 +3,7 @@ from utils.clean_empty_folders import remove_empty_folders_max_depth
 from split_text.split_text_period import TextSentenceSplitter
 from split_audio.split_audio_long_base import SplitAudio
 from utils.delete_files import delete_files_by_extension
+from utils.clean_file_name import CleanFileName
 
 
 def main(audio_dir: str, text_dir):
@@ -11,6 +12,14 @@ def main(audio_dir: str, text_dir):
         folder_root=audio_dir,
     )
     organizer.organize()
+
+    CleanFileName(
+        root_dir=audio_dir,
+        extensions=["WAV"],
+        original="_Tr1",
+        change_to="",
+        portion="any",
+    ).process_all()
 
     summary = remove_empty_folders_max_depth(audio_dir, extension="txt")
     splitter = TextSentenceSplitter(
@@ -21,7 +30,7 @@ def main(audio_dir: str, text_dir):
     processor = SplitAudio(
         root_dir=audio_dir,
         output_dir=audio_dir,
-        min_silence_ms=2700,
+        min_silence_ms=1500,
         min_segment_ms=1000,
         segment_subfolders=True,
     )
@@ -32,4 +41,4 @@ def main(audio_dir: str, text_dir):
 
 
 if __name__ == "__main__":
-    main(audio_dir="Recording_251111_2", text_dir="TEXT_251111_2")
+    main(audio_dir="Recording_2511112", text_dir="TEXT_251112")

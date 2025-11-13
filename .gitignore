@@ -5,12 +5,7 @@ pyproject.toml
 temp_folder/
 .DS_Store
 __pycache__/
-audio_files_1/
-audio_files_2/
-audio_files_1_sentences/
-audio_files_2_sentences/
 temp_files/
 old/
 .git
-Korean_Conversational_Speech_Corpus/
 data/

@@ -131,8 +131,8 @@ class DirectoryMerger:
 
 if __name__ == "__main__":
     merger = DirectoryMerger(
-        dir1="1107_Recording_sentences",
-        dir2="",
+        dir1="data/wavs_20250416_012741_splits_filtered",
+        dir2="data/wavs_20250416_012741_splits_filtered_text",
         output_dir="merged",  # set if new directory needed
     )
     merger.merge(copy_mode=True)

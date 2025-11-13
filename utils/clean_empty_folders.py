@@ -172,5 +172,8 @@ def remove_empty_folders_max_depth(root_dir: str, extension: str):
 
 
 if __name__ == "__main__":
-    # summary = remove_empty_folders_max_depth("data/wavs_20250416_012741_splits", extension="wav")
-    summary = remove_folders_without_segments("data/wavs_20250416_012741_splits copy")
+    # summary = remove_empty_folders_max_depth(
+    #     "data/wavs_20250416_012741_splits_filtered", extension="wav"
+    # )
+    summary = remove_folders_without_segments("data/wavs_20250416_012741_splits_filtered")
+    # summary = remove_folders_without_segments("data/wavs_20250416_012741_splits copy")

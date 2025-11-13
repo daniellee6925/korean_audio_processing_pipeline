@@ -1,0 +1,20 @@
+model:
+  name: "large-v3"  # or "base", "small", "medium", "large-v3"
+  device: null  # auto-detect cuda/cpu
+  compute_type: "float16"  # Options: float16 (GPU), int8 (CPU/GPU), float32
+  language: null  # Optional: "en", "es", etc. for faster processing
+
+data:
+  root_dir: "/workspace/audio_files"
+  recursive: true
+  extension: ".wav"
+  output_prefix: "out_"
+  include_subdirs: []  # Leave empty if recursive=true
+
+processing:
+  batch_size: 16  # Increase for faster processing (requires more VRAM)
+
+transcription:
+  # WhisperX specific options
+  language: "ko"  
+  # initial_prompt: "Custom prompt here"

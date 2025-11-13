@@ -7,7 +7,7 @@ import shutil
 from pathlib import Path
 
 
-class BackgroundMusicDetector:
+class FilterByBGM:
     """
     Detects background music in audio files by analyzing silence patterns.
     Speech-only audio has clear silence gaps, while music creates continuous sound.
@@ -293,7 +293,7 @@ class BackgroundMusicDetector:
 # Example usage
 if __name__ == "__main__":
     # Initialize detector
-    detector = BackgroundMusicDetector(
+    detector = FilterByBGM(
         root_dir="audio_files_3 copy",
         energy_threshold=0.02,  # Adjust based on your audio
         min_silence_duration=0.3,  # Minimum 0.3s silence

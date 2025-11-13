@@ -15,4 +15,4 @@ def main(root_dir: str):
 
 
 if __name__ == "__main__":
-    main(root_dir="data/wavs_20250416_012741_splits")
+    main(root_dir="Recording_2511112")

@@ -70,9 +70,9 @@ class CleanFileName:
 
 if __name__ == "__main__":
     cleaner = CleanFileName(
-        "TEXT_251111_1",
+        "data/wavs_20250416_012741_splits_filtered_text",
         extensions=["txt"],
-        original="1_",
+        original="out_",
         change_to="",
         portion="start",  # only replace at the start
         # portion="custom", custom_range=(0,5)  # uncomment for a custom portion
