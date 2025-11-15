@@ -1,435 +1,264 @@
-2025-11-13 13:31:59.076 | INFO     | split_audio.split_audio_long_base:__init__:69 - Initialized AudioProcessor
-2025-11-13 13:31:59.076 | INFO     | split_audio.split_audio_long_base:process_all:277 - Scanning data/wavs_20250416_013301 for audio files...
-2025-11-13 13:31:59.076 | INFO     | split_audio.split_audio_long_base:process_all:283 - Found 30 audio files to process
-2025-11-13 13:31:59.448 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_1690.wav
-2025-11-13 13:31:59.449 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_1690.wav
-2025-11-13 13:31:59.454 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 11 speech segments in temp/download_1690.wav
-2025-11-13 13:31:59.455 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 11 segments (min_len=0.0s)
-2025-11-13 13:31:59.606 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 11 segments → data/wavs_20250416_013301_segments/./download_1690_segment (threads=8)
-2025-11-13 13:31:59.607 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_1690.wav
-2025-11-13 13:31:59.607 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_1690.wav
-2025-11-13 13:31:59.607 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_1069.wav
-2025-11-13 13:31:59.608 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_1069.wav
-2025-11-13 13:31:59.615 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 5 speech segments in temp/download_1069.wav
-2025-11-13 13:31:59.616 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 5 segments (min_len=0.0s)
-2025-11-13 13:31:59.713 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 5 segments → data/wavs_20250416_013301_segments/./download_1069_segment (threads=8)
-2025-11-13 13:31:59.713 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_1069.wav
-2025-11-13 13:31:59.713 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_1069.wav
-2025-11-13 13:32:00.412 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_1875.wav
-2025-11-13 13:32:00.413 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_1875.wav
-2025-11-13 13:32:00.440 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 4 speech segments in temp/download_1875.wav
-2025-11-13 13:32:00.441 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 4 segments (min_len=0.0s)
-2025-11-13 13:32:00.792 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 4 segments → data/wavs_20250416_013301_segments/./download_1875_segment (threads=8)
-2025-11-13 13:32:00.793 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_1875.wav
-2025-11-13 13:32:00.794 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_1875.wav
-2025-11-13 13:32:00.794 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_1150.wav
-2025-11-13 13:32:00.794 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_1150.wav
-2025-11-13 13:32:00.826 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 3 speech segments in temp/download_1150.wav
-2025-11-13 13:32:00.827 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 3 segments (min_len=0.0s)
-2025-11-13 13:32:01.053 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 3 segments → data/wavs_20250416_013301_segments/./download_1150_segment (threads=8)
-2025-11-13 13:32:01.070 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_1150.wav
-2025-11-13 13:32:01.070 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_1150.wav
-2025-11-13 13:32:01.071 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_919.wav
-2025-11-13 13:32:01.072 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_919.wav
-2025-11-13 13:32:01.093 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 6 speech segments in temp/download_919.wav
-2025-11-13 13:32:01.094 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 6 segments (min_len=0.0s)
-2025-11-13 13:32:01.343 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 6 segments → data/wavs_20250416_013301_segments/./download_919_segment (threads=8)
-2025-11-13 13:32:01.561 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_919.wav
-2025-11-13 13:32:01.562 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_919.wav
-2025-11-13 13:32:01.565 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_772.wav
-2025-11-13 13:32:01.566 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_772.wav
-2025-11-13 13:32:01.618 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 23 speech segments in temp/download_772.wav
-2025-11-13 13:32:01.619 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 23 segments (min_len=0.0s)
-2025-11-13 13:32:01.993 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 23 segments → data/wavs_20250416_013301_segments/./download_772_segment (threads=8)
-2025-11-13 13:32:01.993 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_772.wav
-2025-11-13 13:32:01.993 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_772.wav
-2025-11-13 13:32:02.462 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_673.wav
-2025-11-13 13:32:02.464 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_673.wav
-2025-11-13 13:32:02.498 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 7 speech segments in temp/download_673.wav
-2025-11-13 13:32:02.516 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 7 segments (min_len=0.0s)
-2025-11-13 13:32:02.705 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 7 segments → data/wavs_20250416_013301_segments/./download_673_segment (threads=8)
-2025-11-13 13:32:02.705 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_673.wav
-2025-11-13 13:32:02.705 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_673.wav
-2025-11-13 13:32:03.309 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_2117.wav
-2025-11-13 13:32:03.311 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_2117.wav
-2025-11-13 13:32:03.362 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 58 speech segments in temp/download_2117.wav
-2025-11-13 13:32:03.364 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 58 segments (min_len=0.0s)
-2025-11-13 13:32:04.456 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 58 segments → data/wavs_20250416_013301_segments/./download_2117_segment (threads=8)
-2025-11-13 13:32:04.457 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_2117.wav
-2025-11-13 13:32:04.457 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_2117.wav
-2025-11-13 13:32:04.819 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_1355.wav
-2025-11-13 13:32:04.820 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_1355.wav
-2025-11-13 13:32:04.856 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 1 speech segments in temp/download_1355.wav
-2025-11-13 13:32:04.857 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 1 segments (min_len=0.0s)
-2025-11-13 13:32:05.054 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 1 segments → data/wavs_20250416_013301_segments/./download_1355_segment (threads=8)
-2025-11-13 13:32:05.054 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_1355.wav
-2025-11-13 13:32:05.054 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_1355.wav
-2025-11-13 13:32:05.764 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_767.wav
-2025-11-13 13:32:05.764 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_767.wav
-2025-11-13 13:32:05.835 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 5 speech segments in temp/download_767.wav
-2025-11-13 13:32:05.838 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 5 segments (min_len=0.0s)
-2025-11-13 13:32:06.222 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 5 segments → data/wavs_20250416_013301_segments/./download_767_segment (threads=8)
-2025-11-13 13:32:06.779 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_767.wav
-2025-11-13 13:32:06.785 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_767.wav
-2025-11-13 13:32:06.786 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_866.wav
-2025-11-13 13:32:06.787 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_866.wav
-2025-11-13 13:32:06.796 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 14 speech segments in temp/download_866.wav
-2025-11-13 13:32:06.797 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_956.wav
-2025-11-13 13:32:06.797 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 14 segments (min_len=0.0s)
-2025-11-13 13:32:06.798 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_956.wav
-2025-11-13 13:32:07.142 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 58 speech segments in temp/download_956.wav
-2025-11-13 13:32:07.212 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 58 segments (min_len=0.0s)
-2025-11-13 13:32:07.463 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 14 segments → data/wavs_20250416_013301_segments/./download_866_segment (threads=8)
-2025-11-13 13:32:07.464 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_866.wav
-2025-11-13 13:32:07.487 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_866.wav
-2025-11-13 13:32:08.632 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 58 segments → data/wavs_20250416_013301_segments/./download_956_segment (threads=8)
-2025-11-13 13:32:08.633 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_956.wav
-2025-11-13 13:32:08.633 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_956.wav
-2025-11-13 13:32:08.904 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_923.wav
-2025-11-13 13:32:08.904 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_923.wav
-2025-11-13 13:32:08.935 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 5 speech segments in temp/download_923.wav
-2025-11-13 13:32:08.937 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 5 segments (min_len=0.0s)
-2025-11-13 13:32:09.129 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 5 segments → data/wavs_20250416_013301_segments/./download_923_segment (threads=8)
-2025-11-13 13:32:09.129 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_923.wav
-2025-11-13 13:32:09.130 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_923.wav
-2025-11-13 13:32:09.685 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_2056.wav
-2025-11-13 13:32:09.686 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_2056.wav
-2025-11-13 13:32:09.712 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 1 speech segments in temp/download_2056.wav
-2025-11-13 13:32:09.713 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 1 segments (min_len=0.0s)
-2025-11-13 13:32:09.953 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 1 segments → data/wavs_20250416_013301_segments/./download_2056_segment (threads=8)
-2025-11-13 13:32:10.167 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_2056.wav
-2025-11-13 13:32:10.168 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_2056.wav
-2025-11-13 13:32:10.170 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_1403.wav
-2025-11-13 13:32:10.171 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_1403.wav
-2025-11-13 13:32:10.236 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 2 speech segments in temp/download_1403.wav
-2025-11-13 13:32:10.238 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 2 segments (min_len=0.0s)
-2025-11-13 13:32:10.380 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 2 segments → data/wavs_20250416_013301_segments/./download_1403_segment (threads=8)
-2025-11-13 13:32:10.380 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_1403.wav
-2025-11-13 13:32:10.380 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_1403.wav
-2025-11-13 13:32:11.472 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_703.wav
-2025-11-13 13:32:11.473 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_703.wav
-2025-11-13 13:32:11.578 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 68 speech segments in temp/download_703.wav
-2025-11-13 13:32:11.583 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 68 segments (min_len=0.0s)
-2025-11-13 13:32:13.289 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 68 segments → data/wavs_20250416_013301_segments/./download_703_segment (threads=8)
-2025-11-13 13:32:13.289 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_703.wav
-2025-11-13 13:32:13.289 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_703.wav
-2025-11-13 13:32:13.623 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_903.wav
-2025-11-13 13:32:13.623 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_903.wav
-2025-11-13 13:32:13.643 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 4 speech segments in temp/download_903.wav
-2025-11-13 13:32:13.645 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 4 segments (min_len=0.0s)
-2025-11-13 13:32:13.797 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 4 segments → data/wavs_20250416_013301_segments/./download_903_segment (threads=8)
-2025-11-13 13:32:13.798 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_903.wav
-2025-11-13 13:32:13.798 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_903.wav
-2025-11-13 13:32:15.483 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_1137.wav
-2025-11-13 13:32:15.484 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_1137.wav
-2025-11-13 13:32:15.634 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 190 speech segments in temp/download_1137.wav
-2025-11-13 13:32:15.638 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 190 segments (min_len=0.0s)
-2025-11-13 13:32:21.514 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 190 segments → data/wavs_20250416_013301_segments/./download_1137_segment (threads=8)
-2025-11-13 13:32:21.515 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_1137.wav
-2025-11-13 13:32:21.515 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_1137.wav
-2025-11-13 13:32:21.897 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_636.wav
-2025-11-13 13:32:21.897 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_636.wav
-2025-11-13 13:32:21.929 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 1 speech segments in temp/download_636.wav
-2025-11-13 13:32:21.931 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 1 segments (min_len=0.0s)
-2025-11-13 13:32:22.160 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 1 segments → data/wavs_20250416_013301_segments/./download_636_segment (threads=8)
-2025-11-13 13:32:22.160 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_636.wav
-2025-11-13 13:32:22.160 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_636.wav
-2025-11-13 13:32:22.162 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_1886.wav
-2025-11-13 13:32:22.162 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_1886.wav
-2025-11-13 13:32:22.183 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 8 speech segments in temp/download_1886.wav
-2025-11-13 13:32:22.184 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 8 segments (min_len=0.0s)
-2025-11-13 13:32:22.531 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 8 segments → data/wavs_20250416_013301_segments/./download_1886_segment (threads=8)
-2025-11-13 13:32:22.531 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_1886.wav
-2025-11-13 13:32:22.531 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_1886.wav
-2025-11-13 13:32:23.695 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_1010.wav
-2025-11-13 13:32:23.696 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_1010.wav
-2025-11-13 13:32:23.810 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/download_1010.wav
-2025-11-13 13:32:23.814 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
-2025-11-13 13:32:24.285 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → data/wavs_20250416_013301_segments/./download_1010_segment (threads=8)
-2025-11-13 13:32:24.285 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_1010.wav
-2025-11-13 13:32:24.285 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_1010.wav
-2025-11-13 13:32:24.536 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_635.wav
-2025-11-13 13:32:24.537 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_635.wav
-2025-11-13 13:32:24.558 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 18 speech segments in temp/download_635.wav
-2025-11-13 13:32:24.559 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 18 segments (min_len=0.0s)
-2025-11-13 13:32:25.157 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 18 segments → data/wavs_20250416_013301_segments/./download_635_segment (threads=8)
-2025-11-13 13:32:25.157 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_635.wav
-2025-11-13 13:32:25.158 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_635.wav
-2025-11-13 13:32:26.120 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_877.wav
-2025-11-13 13:32:26.121 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_877.wav
-2025-11-13 13:32:26.198 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 1 speech segments in temp/download_877.wav
-2025-11-13 13:32:26.201 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 1 segments (min_len=0.0s)
-2025-11-13 13:32:26.570 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 1 segments → data/wavs_20250416_013301_segments/./download_877_segment (threads=8)
-2025-11-13 13:32:26.570 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_877.wav
-2025-11-13 13:32:26.571 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_877.wav
-2025-11-13 13:32:26.572 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_1934.wav
-2025-11-13 13:32:26.573 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_1934.wav
-2025-11-13 13:32:26.608 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 13 speech segments in temp/download_1934.wav
-2025-11-13 13:32:26.609 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 13 segments (min_len=0.0s)
-2025-11-13 13:32:27.092 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 13 segments → data/wavs_20250416_013301_segments/./download_1934_segment (threads=8)
-2025-11-13 13:32:27.093 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_1934.wav
-2025-11-13 13:32:27.093 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_1934.wav
-2025-11-13 13:32:27.353 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_828.wav
-2025-11-13 13:32:27.353 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_828.wav
-2025-11-13 13:32:27.374 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 3 speech segments in temp/download_828.wav
-2025-11-13 13:32:27.375 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 3 segments (min_len=0.0s)
-2025-11-13 13:32:27.612 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 3 segments → data/wavs_20250416_013301_segments/./download_828_segment (threads=8)
-2025-11-13 13:32:27.613 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_828.wav
-2025-11-13 13:32:27.613 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_828.wav
-2025-11-13 13:32:28.874 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_492.wav
-2025-11-13 13:32:28.875 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_492.wav
-2025-11-13 13:32:29.005 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 5 speech segments in temp/download_492.wav
-2025-11-13 13:32:29.010 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 5 segments (min_len=0.0s)
-2025-11-13 13:32:29.759 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 5 segments → data/wavs_20250416_013301_segments/./download_492_segment (threads=8)
-2025-11-13 13:32:29.759 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_492.wav
-2025-11-13 13:32:29.759 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_492.wav
-2025-11-13 13:32:29.763 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_553.wav
-2025-11-13 13:32:29.764 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_553.wav
-2025-11-13 13:32:29.822 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 26 speech segments in temp/download_553.wav
-2025-11-13 13:32:29.824 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 26 segments (min_len=0.0s)
-2025-11-13 13:32:30.785 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 26 segments → data/wavs_20250416_013301_segments/./download_553_segment (threads=8)
-2025-11-13 13:32:30.786 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_553.wav
-2025-11-13 13:32:30.786 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_553.wav
-2025-11-13 13:32:32.413 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_732.wav
-2025-11-13 13:32:32.415 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_732.wav
-2025-11-13 13:32:32.582 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 116 speech segments in temp/download_732.wav
-2025-11-13 13:32:32.587 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 116 segments (min_len=0.0s)
-2025-11-13 13:32:37.034 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 116 segments → data/wavs_20250416_013301_segments/./download_732_segment (threads=8)
-2025-11-13 13:32:37.034 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_732.wav
-2025-11-13 13:32:37.034 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_732.wav
-2025-11-13 13:32:40.153 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_924.wav
-2025-11-13 13:32:40.154 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_924.wav
-2025-11-13 13:32:40.413 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 35 speech segments in temp/download_924.wav
-2025-11-13 13:32:40.421 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 35 segments (min_len=0.0s)
-2025-11-13 13:32:42.633 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 35 segments → data/wavs_20250416_013301_segments/./download_924_segment (threads=8)
-2025-11-13 13:32:42.633 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_924.wav
-2025-11-13 13:32:42.633 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_924.wav
-2025-11-13 13:32:42.639 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/download_1076.wav
-2025-11-13 13:32:42.640 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/download_1076.wav
-2025-11-13 13:32:42.756 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 144 speech segments in temp/download_1076.wav
-2025-11-13 13:32:42.760 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 144 segments (min_len=0.0s)
-2025-11-13 13:32:46.334 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 144 segments → data/wavs_20250416_013301_segments/./download_1076_segment (threads=8)
-2025-11-13 13:32:46.334 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file data/wavs_20250416_013301/download_1076.wav
-2025-11-13 13:32:46.334 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: data/wavs_20250416_013301/download_1076.wav
-2025-11-13 13:32:46.334 | INFO     | split_audio.split_audio_long_base:process_all:316 - Finished processing 30 files total.
-2025-11-13 13:32:46.340 | INFO     | split_audio.split_audio_long_base:clear_temp_files:247 - Cleared all temp files in temp
-2025-11-13 13:32:46.340 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 1 files in data/wavs_20250416_013301_segments/download_636_segment
-2025-11-13 13:32:46.341 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_636_segment/segment_1.wav: Error opening 'data/wavs_20250416_013301_segments/download_636_segment/segment_1.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.342 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 0 files to remove in this batch.
-2025-11-13 13:32:46.342 | INFO     | filters.filter_files_by_length:process_all:102 - No files to remove in data/wavs_20250416_013301_segments/download_636_segment
-2025-11-13 13:32:46.342 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 68 files in data/wavs_20250416_013301_segments/download_703_segment
-2025-11-13 13:32:46.342 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_20.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_20.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.342 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_34.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_34.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.342 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_35.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_35.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.343 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_21.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_21.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.343 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_9.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_9.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.343 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_37.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_37.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.343 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_23.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_23.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.343 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_22.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_22.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.343 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_36.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_36.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.344 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_8.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_8.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.344 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_32.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_32.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.344 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_26.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_26.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.344 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_27.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_27.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.344 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_33.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_33.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.345 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_19.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_19.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.345 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_25.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_25.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.345 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_31.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_31.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.345 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_30.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_30.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.345 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_24.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_24.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.346 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_18.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_18.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.346 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_43.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_43.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.346 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_57.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_57.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.346 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_56.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_56.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.346 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_42.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_42.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.346 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_54.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_54.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.347 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_40.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_40.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.347 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_68.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_68.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.347 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_41.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_41.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.347 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_55.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_55.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.347 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_51.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_51.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.347 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_45.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_45.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.347 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_44.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_44.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.348 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_50.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_50.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.348 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_46.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_46.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.348 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_52.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_52.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.348 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_53.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_53.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.348 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_47.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_47.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.348 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_62.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_62.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.349 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_63.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_63.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.349 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_61.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_61.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.349 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_49.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_49.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.349 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_48.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_48.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.349 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_60.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_60.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.349 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_58.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_58.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.349 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_64.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_64.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.350 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_65.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_65.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.350 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_59.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_59.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.350 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_67.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_67.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.350 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_66.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_66.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.350 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_3.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_3.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.350 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_15.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_15.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.351 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_29.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_29.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.351 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_28.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_28.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.351 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_14.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_14.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.351 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_2.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_2.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.351 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_16.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_16.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.351 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_17.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_17.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.352 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_1.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_1.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.352 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_5.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_5.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.352 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_13.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_13.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.352 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_12.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_12.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.352 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_4.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_4.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.352 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_6.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_6.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.352 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_38.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_38.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.353 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_10.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_10.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.353 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_11.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_11.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.353 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_39.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_39.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.353 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_703_segment/segment_7.wav: Error opening 'data/wavs_20250416_013301_segments/download_703_segment/segment_7.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.353 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 0 files to remove in this batch.
-2025-11-13 13:32:46.353 | INFO     | filters.filter_files_by_length:process_all:102 - No files to remove in data/wavs_20250416_013301_segments/download_703_segment
-2025-11-13 13:32:46.353 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 13 files in data/wavs_20250416_013301_segments/download_1934_segment
-2025-11-13 13:32:46.358 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 12 files to remove in this batch.
-2025-11-13 13:32:46.359 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 12 files in data/wavs_20250416_013301_segments/download_1934_segment
-2025-11-13 13:32:46.359 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 14 files in data/wavs_20250416_013301_segments/download_866_segment
-2025-11-13 13:32:46.362 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 2 files to remove in this batch.
-2025-11-13 13:32:46.363 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 2 files in data/wavs_20250416_013301_segments/download_866_segment
-2025-11-13 13:32:46.363 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 144 files in data/wavs_20250416_013301_segments/download_1076_segment
-2025-11-13 13:32:46.374 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 78 files to remove in this batch.
-2025-11-13 13:32:46.377 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 78 files in data/wavs_20250416_013301_segments/download_1076_segment
-2025-11-13 13:32:46.377 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 1 files in data/wavs_20250416_013301_segments/download_1355_segment
-2025-11-13 13:32:46.378 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 1 files to remove in this batch.
-2025-11-13 13:32:46.378 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 1 files in data/wavs_20250416_013301_segments/download_1355_segment
-2025-11-13 13:32:46.378 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 7 files in data/wavs_20250416_013301_segments/download_673_segment
-2025-11-13 13:32:46.380 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 5 files to remove in this batch.
-2025-11-13 13:32:46.381 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 5 files in data/wavs_20250416_013301_segments/download_673_segment
-2025-11-13 13:32:46.381 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 2 files in data/wavs_20250416_013301_segments/download_1403_segment
-2025-11-13 13:32:46.381 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_1403_segment/segment_2.wav: Error opening 'data/wavs_20250416_013301_segments/download_1403_segment/segment_2.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.382 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_1403_segment/segment_1.wav: Error opening 'data/wavs_20250416_013301_segments/download_1403_segment/segment_1.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.382 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 0 files to remove in this batch.
-2025-11-13 13:32:46.382 | INFO     | filters.filter_files_by_length:process_all:102 - No files to remove in data/wavs_20250416_013301_segments/download_1403_segment
-2025-11-13 13:32:46.382 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 1 files in data/wavs_20250416_013301_segments/download_877_segment
-2025-11-13 13:32:46.382 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 1 files to remove in this batch.
-2025-11-13 13:32:46.382 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 1 files in data/wavs_20250416_013301_segments/download_877_segment
-2025-11-13 13:32:46.382 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 8 files in data/wavs_20250416_013301_segments/download_1886_segment
-2025-11-13 13:32:46.385 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 7 files to remove in this batch.
-2025-11-13 13:32:46.385 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 7 files in data/wavs_20250416_013301_segments/download_1886_segment
-2025-11-13 13:32:46.385 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 11 files in data/wavs_20250416_013301_segments/download_1690_segment
-2025-11-13 13:32:46.388 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 4 files to remove in this batch.
-2025-11-13 13:32:46.388 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 4 files in data/wavs_20250416_013301_segments/download_1690_segment
-2025-11-13 13:32:46.388 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 3 files in data/wavs_20250416_013301_segments/download_828_segment
-2025-11-13 13:32:46.389 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 3 files to remove in this batch.
-2025-11-13 13:32:46.389 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 3 files in data/wavs_20250416_013301_segments/download_828_segment
-2025-11-13 13:32:46.389 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 1 files in data/wavs_20250416_013301_segments/download_2056_segment
-2025-11-13 13:32:46.390 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 1 files to remove in this batch.
-2025-11-13 13:32:46.390 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 1 files in data/wavs_20250416_013301_segments/download_2056_segment
-2025-11-13 13:32:46.390 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 5 files in data/wavs_20250416_013301_segments/download_492_segment
-2025-11-13 13:32:46.391 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 4 files to remove in this batch.
-2025-11-13 13:32:46.392 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 4 files in data/wavs_20250416_013301_segments/download_492_segment
-2025-11-13 13:32:46.392 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 26 files in data/wavs_20250416_013301_segments/download_553_segment
-2025-11-13 13:32:46.398 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 15 files to remove in this batch.
-2025-11-13 13:32:46.399 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 15 files in data/wavs_20250416_013301_segments/download_553_segment
-2025-11-13 13:32:46.399 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 18 files in data/wavs_20250416_013301_segments/download_635_segment
-2025-11-13 13:32:46.403 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 13 files to remove in this batch.
-2025-11-13 13:32:46.404 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 13 files in data/wavs_20250416_013301_segments/download_635_segment
-2025-11-13 13:32:46.404 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 3 files in data/wavs_20250416_013301_segments/download_1150_segment
-2025-11-13 13:32:46.405 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 3 files to remove in this batch.
-2025-11-13 13:32:46.406 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 3 files in data/wavs_20250416_013301_segments/download_1150_segment
-2025-11-13 13:32:46.406 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 23 files in data/wavs_20250416_013301_segments/download_772_segment
-2025-11-13 13:32:46.412 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 14 files to remove in this batch.
-2025-11-13 13:32:46.413 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 14 files in data/wavs_20250416_013301_segments/download_772_segment
-2025-11-13 13:32:46.413 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 5 files in data/wavs_20250416_013301_segments/download_923_segment
-2025-11-13 13:32:46.414 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 2 files to remove in this batch.
-2025-11-13 13:32:46.414 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 2 files in data/wavs_20250416_013301_segments/download_923_segment
-2025-11-13 13:32:46.415 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 116 files in data/wavs_20250416_013301_segments/download_732_segment
-2025-11-13 13:32:46.426 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 70 files to remove in this batch.
-2025-11-13 13:32:46.429 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 70 files in data/wavs_20250416_013301_segments/download_732_segment
-2025-11-13 13:32:46.429 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 6 files in data/wavs_20250416_013301_segments/download_919_segment
-2025-11-13 13:32:46.430 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 6 files to remove in this batch.
-2025-11-13 13:32:46.431 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 6 files in data/wavs_20250416_013301_segments/download_919_segment
-2025-11-13 13:32:46.431 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 5 files in data/wavs_20250416_013301_segments/download_767_segment
-2025-11-13 13:32:46.432 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 5 files to remove in this batch.
-2025-11-13 13:32:46.433 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 5 files in data/wavs_20250416_013301_segments/download_767_segment
-2025-11-13 13:32:46.433 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 190 files in data/wavs_20250416_013301_segments/download_1137_segment
-2025-11-13 13:32:46.481 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 91 files to remove in this batch.
-2025-11-13 13:32:46.484 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 91 files in data/wavs_20250416_013301_segments/download_1137_segment
-2025-11-13 13:32:46.484 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 4 files in data/wavs_20250416_013301_segments/download_1875_segment
-2025-11-13 13:32:46.485 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 4 files to remove in this batch.
-2025-11-13 13:32:46.486 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 4 files in data/wavs_20250416_013301_segments/download_1875_segment
-2025-11-13 13:32:46.486 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 5 files in data/wavs_20250416_013301_segments/download_1069_segment
-2025-11-13 13:32:46.487 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 4 files to remove in this batch.
-2025-11-13 13:32:46.487 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 4 files in data/wavs_20250416_013301_segments/download_1069_segment
-2025-11-13 13:32:46.488 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 9 files in data/wavs_20250416_013301_segments/download_1010_segment
-2025-11-13 13:32:46.490 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 9 files to remove in this batch.
-2025-11-13 13:32:46.491 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 9 files in data/wavs_20250416_013301_segments/download_1010_segment
-2025-11-13 13:32:46.491 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 4 files in data/wavs_20250416_013301_segments/download_903_segment
-2025-11-13 13:32:46.492 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 2 files to remove in this batch.
-2025-11-13 13:32:46.492 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 2 files in data/wavs_20250416_013301_segments/download_903_segment
-2025-11-13 13:32:46.492 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 58 files in data/wavs_20250416_013301_segments/download_2117_segment
-2025-11-13 13:32:46.507 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 21 files to remove in this batch.
-2025-11-13 13:32:46.508 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 21 files in data/wavs_20250416_013301_segments/download_2117_segment
-2025-11-13 13:32:46.508 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 35 files in data/wavs_20250416_013301_segments/download_924_segment
-2025-11-13 13:32:46.511 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 33 files to remove in this batch.
-2025-11-13 13:32:46.521 | INFO     | filters.filter_files_by_length:process_all:100 - Removed 33 files in data/wavs_20250416_013301_segments/download_924_segment
-2025-11-13 13:32:46.522 | INFO     | filters.filter_files_by_length:process_all:83 - Filtering 58 files in data/wavs_20250416_013301_segments/download_956_segment
-2025-11-13 13:32:46.522 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_20.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_20.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.522 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_34.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_34.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.522 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_35.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_35.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.523 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_21.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_21.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.523 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_9.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_9.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.523 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_37.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_37.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.523 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_23.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_23.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.523 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_22.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_22.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.524 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_36.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_36.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.524 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_8.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_8.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.524 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_32.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_32.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.524 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_26.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_26.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.524 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_27.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_27.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.525 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_33.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_33.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.525 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_19.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_19.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.525 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_25.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_25.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.525 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_31.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_31.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.525 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_30.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_30.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.525 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_24.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_24.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.525 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_18.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_18.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.526 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_43.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_43.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.526 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_57.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_57.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.526 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_56.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_56.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.526 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_42.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_42.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.526 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_54.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_54.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.527 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_40.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_40.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.527 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_41.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_41.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.527 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_55.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_55.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.527 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_51.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_51.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.527 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_45.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_45.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.527 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_44.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_44.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.528 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_50.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_50.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.528 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_46.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_46.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.528 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_52.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_52.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.528 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_53.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_53.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.528 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_47.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_47.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.528 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_49.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_49.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.528 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_48.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_48.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.529 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_58.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_58.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.529 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_3.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_3.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.529 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_15.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_15.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.529 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_29.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_29.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.529 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_28.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_28.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.529 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_14.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_14.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.530 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_2.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_2.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.530 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_16.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_16.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.530 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_17.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_17.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.530 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_1.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_1.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.530 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_5.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_5.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.530 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_13.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_13.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.531 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_12.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_12.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.531 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_4.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_4.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.531 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_6.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_6.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.531 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_38.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_38.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.531 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_10.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_10.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.531 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_11.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_11.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.532 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_39.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_39.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.532 | ERROR    | filters.filter_files_by_length:get_audio_duration:43 - Failed to get duration for data/wavs_20250416_013301_segments/download_956_segment/segment_7.wav: Error opening 'data/wavs_20250416_013301_segments/download_956_segment/segment_7.wav': Error in WAV/W64/RF64 file. Malformed 'fmt ' chunk.
-2025-11-13 13:32:46.532 | INFO     | filters.filter_files_by_length:filter_by_duration:59 - Detected 0 files to remove in this batch.
-2025-11-13 13:32:46.532 | INFO     | filters.filter_files_by_length:process_all:102 - No files to remove in data/wavs_20250416_013301_segments/download_956_segment
-2025-11-13 13:32:46.532 | SUCCESS  | filters.filter_files_by_length:process_all:104 - Finished filtering. Total number of files deleted: 410
+2025-11-14 13:49:56.194 | INFO     | split_audio.split_audio_long_base:__init__:69 - Initialized AudioProcessor
+2025-11-14 13:49:56.194 | INFO     | split_audio.split_audio_long_base:process_all:277 - Scanning Recording_251114 for audio files...
+2025-11-14 13:49:56.199 | INFO     | split_audio.split_audio_long_base:process_all:283 - Found 37 audio files to process
+2025-11-14 13:49:59.836 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_003.WAV
+2025-11-14 13:49:59.882 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_034.WAV
+2025-11-14 13:49:59.882 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_022.WAV
+2025-11-14 13:49:59.901 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_003.WAV
+2025-11-14 13:50:00.014 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_039.WAV
+2025-11-14 13:50:00.020 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_034.WAV
+2025-11-14 13:50:00.106 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_022.WAV
+2025-11-14 13:50:00.122 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_042.WAV
+2025-11-14 13:50:00.257 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_039.WAV
+2025-11-14 13:50:00.258 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_042.WAV
+2025-11-14 13:50:00.270 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_003.WAV
+2025-11-14 13:50:00.270 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_023.WAV
+2025-11-14 13:50:00.271 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_022.WAV
+2025-11-14 13:50:00.278 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_034.WAV
+2025-11-14 13:50:00.279 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:00.279 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_015.WAV
+2025-11-14 13:50:00.279 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_018.WAV
+2025-11-14 13:50:00.279 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_023.WAV
+2025-11-14 13:50:00.280 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:00.292 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_039.WAV
+2025-11-14 13:50:00.294 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 10 speech segments in temp/180107_042.WAV
+2025-11-14 13:50:00.295 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:00.295 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_015.WAV
+2025-11-14 13:50:00.301 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_018.WAV
+2025-11-14 13:50:00.313 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:00.314 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 10 segments (min_len=0.0s)
+2025-11-14 13:50:00.328 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 10 speech segments in temp/180107_023.WAV
+2025-11-14 13:50:00.355 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 10 segments (min_len=0.0s)
+2025-11-14 13:50:00.376 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_015.WAV
+2025-11-14 13:50:00.377 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:00.386 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 8 speech segments in temp/180107_018.WAV
+2025-11-14 13:50:00.402 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 8 segments (min_len=0.0s)
+2025-11-14 13:50:00.434 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_003.TAKE/180107_003_segment (threads=8)
+2025-11-14 13:50:00.444 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_003.TAKE/180107_003.WAV
+2025-11-14 13:50:00.444 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_003.TAKE/180107_003.WAV
+2025-11-14 13:50:00.635 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_034.TAKE/180107_034_segment (threads=8)
+2025-11-14 13:50:00.690 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_034.TAKE/180107_034.WAV
+2025-11-14 13:50:00.701 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_034.TAKE/180107_034.WAV
+2025-11-14 13:50:00.735 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_039.TAKE/180107_039_segment (threads=8)
+2025-11-14 13:50:00.759 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_039.TAKE/180107_039.WAV
+2025-11-14 13:50:00.853 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_039.TAKE/180107_039.WAV
+2025-11-14 13:50:00.867 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 8 segments → Recording_251114/180107_018.TAKE/180107_018_segment (threads=8)
+2025-11-14 13:50:00.998 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_018.TAKE/180107_018.WAV
+2025-11-14 13:50:01.076 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_018.TAKE/180107_018.WAV
+2025-11-14 13:50:01.177 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_022.TAKE/180107_022_segment (threads=8)
+2025-11-14 13:50:01.236 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_022.TAKE/180107_022.WAV
+2025-11-14 13:50:01.236 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 10 segments → Recording_251114/180107_042.TAKE/180107_042_segment (threads=8)
+2025-11-14 13:50:01.309 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_022.TAKE/180107_022.WAV
+2025-11-14 13:50:01.328 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_042.TAKE/180107_042.WAV
+2025-11-14 13:50:01.377 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 10 segments → Recording_251114/180107_023.TAKE/180107_023_segment (threads=8)
+2025-11-14 13:50:01.408 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_042.TAKE/180107_042.WAV
+2025-11-14 13:50:01.456 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_015.TAKE/180107_015_segment (threads=8)
+2025-11-14 13:50:01.481 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_023.TAKE/180107_023.WAV
+2025-11-14 13:50:01.604 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_015.TAKE/180107_015.WAV
+2025-11-14 13:50:01.652 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_023.TAKE/180107_023.WAV
+2025-11-14 13:50:01.683 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_015.TAKE/180107_015.WAV
+2025-11-14 13:50:02.051 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_014.WAV
+2025-11-14 13:50:02.063 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_014.WAV
+2025-11-14 13:50:02.406 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_014.WAV
+2025-11-14 13:50:02.535 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:03.601 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_014.TAKE/180107_014_segment (threads=8)
+2025-11-14 13:50:03.705 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_033.WAV
+2025-11-14 13:50:03.725 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_014.TAKE/180107_014.WAV
+2025-11-14 13:50:03.769 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_025.WAV
+2025-11-14 13:50:03.794 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_033.WAV
+2025-11-14 13:50:03.831 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_014.TAKE/180107_014.WAV
+2025-11-14 13:50:03.863 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_043.WAV
+2025-11-14 13:50:03.930 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_025.WAV
+2025-11-14 13:50:04.066 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 8 speech segments in temp/180107_033.WAV
+2025-11-14 13:50:04.086 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_043.WAV
+2025-11-14 13:50:04.305 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 8 segments (min_len=0.0s)
+2025-11-14 13:50:04.436 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_009.WAV
+2025-11-14 13:50:04.454 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 8 speech segments in temp/180107_025.WAV
+2025-11-14 13:50:04.523 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_009.WAV
+2025-11-14 13:50:04.542 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 8 segments (min_len=0.0s)
+2025-11-14 13:50:04.671 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_043.WAV
+2025-11-14 13:50:04.678 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 8 speech segments in temp/180107_009.WAV
+2025-11-14 13:50:04.871 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_005.WAV
+2025-11-14 13:50:04.896 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:04.939 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_013.WAV
+2025-11-14 13:50:04.939 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 8 segments (min_len=0.0s)
+2025-11-14 13:50:04.952 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_005.WAV
+2025-11-14 13:50:05.014 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_013.WAV
+2025-11-14 13:50:05.190 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_005.WAV
+2025-11-14 13:50:05.191 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:05.296 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 8 speech segments in temp/180107_013.WAV
+2025-11-14 13:50:05.296 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_048.WAV
+2025-11-14 13:50:05.296 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 8 segments (min_len=0.0s)
+2025-11-14 13:50:05.314 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 8 segments → Recording_251114/180107_025.TAKE/180107_025_segment (threads=8)
+2025-11-14 13:50:05.357 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_048.WAV
+2025-11-14 13:50:05.382 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 8 segments → Recording_251114/180107_033.TAKE/180107_033_segment (threads=8)
+2025-11-14 13:50:05.394 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_025.TAKE/180107_025.WAV
+2025-11-14 13:50:05.440 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 11 speech segments in temp/180107_048.WAV
+2025-11-14 13:50:05.440 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_033.TAKE/180107_033.WAV
+2025-11-14 13:50:05.458 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_025.TAKE/180107_025.WAV
+2025-11-14 13:50:05.465 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 11 segments (min_len=0.0s)
+2025-11-14 13:50:05.484 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_033.TAKE/180107_033.WAV
+2025-11-14 13:50:05.509 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_043.TAKE/180107_043_segment (threads=8)
+2025-11-14 13:50:05.618 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_043.TAKE/180107_043.WAV
+2025-11-14 13:50:05.802 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 8 segments → Recording_251114/180107_009.TAKE/180107_009_segment (threads=8)
+2025-11-14 13:50:05.826 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_043.TAKE/180107_043.WAV
+2025-11-14 13:50:05.935 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_005.TAKE/180107_005_segment (threads=8)
+2025-11-14 13:50:05.941 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_009.TAKE/180107_009.WAV
+2025-11-14 13:50:06.123 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_005.TAKE/180107_005.WAV
+2025-11-14 13:50:06.194 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 8 segments → Recording_251114/180107_013.TAKE/180107_013_segment (threads=8)
+2025-11-14 13:50:06.207 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_009.TAKE/180107_009.WAV
+2025-11-14 13:50:06.274 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_005.TAKE/180107_005.WAV
+2025-11-14 13:50:06.293 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_012.WAV
+2025-11-14 13:50:06.342 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_013.TAKE/180107_013.WAV
+2025-11-14 13:50:06.460 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_012.WAV
+2025-11-14 13:50:06.473 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 11 segments → Recording_251114/180107_048.TAKE/180107_048_segment (threads=8)
+2025-11-14 13:50:06.485 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_013.TAKE/180107_013.WAV
+2025-11-14 13:50:06.643 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_012.WAV
+2025-11-14 13:50:06.724 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_048.TAKE/180107_048.WAV
+2025-11-14 13:50:06.897 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:06.916 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_048.TAKE/180107_048.WAV
+2025-11-14 13:50:07.381 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_045.WAV
+2025-11-14 13:50:07.424 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_045.WAV
+2025-11-14 13:50:07.771 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_012.TAKE/180107_012_segment (threads=8)
+2025-11-14 13:50:07.784 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_012.TAKE/180107_012.WAV
+2025-11-14 13:50:07.852 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_012.TAKE/180107_012.WAV
+2025-11-14 13:50:08.006 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 10 speech segments in temp/180107_045.WAV
+2025-11-14 13:50:08.018 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 10 segments (min_len=0.0s)
+2025-11-14 13:50:08.354 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_004.WAV
+2025-11-14 13:50:08.549 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_004.WAV
+2025-11-14 13:50:08.610 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_028.WAV
+2025-11-14 13:50:08.653 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_028.WAV
+2025-11-14 13:50:08.837 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 8 speech segments in temp/180107_004.WAV
+2025-11-14 13:50:08.845 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 8 segments (min_len=0.0s)
+2025-11-14 13:50:08.975 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 8 speech segments in temp/180107_028.WAV
+2025-11-14 13:50:09.007 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 8 segments (min_len=0.0s)
+2025-11-14 13:50:09.210 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 10 segments → Recording_251114/180107_045.TAKE/180107_045_segment (threads=8)
+2025-11-14 13:50:09.253 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_045.TAKE/180107_045.WAV
+2025-11-14 13:50:09.357 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_045.TAKE/180107_045.WAV
+2025-11-14 13:50:09.390 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_008.WAV
+2025-11-14 13:50:09.515 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_008.WAV
+2025-11-14 13:50:09.521 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_024.WAV
+2025-11-14 13:50:09.577 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_024.WAV
+2025-11-14 13:50:09.687 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 8 segments → Recording_251114/180107_004.TAKE/180107_004_segment (threads=8)
+2025-11-14 13:50:09.808 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_004.TAKE/180107_004.WAV
+2025-11-14 13:50:09.846 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_004.TAKE/180107_004.WAV
+2025-11-14 13:50:09.982 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 8 speech segments in temp/180107_024.WAV
+2025-11-14 13:50:09.983 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_008.WAV
+2025-11-14 13:50:10.036 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_031.WAV
+2025-11-14 13:50:10.092 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 8 segments (min_len=0.0s)
+2025-11-14 13:50:10.141 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:10.190 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_031.WAV
+2025-11-14 13:50:10.307 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_032.WAV
+2025-11-14 13:50:10.376 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 8 segments → Recording_251114/180107_028.TAKE/180107_028_segment (threads=8)
+2025-11-14 13:50:10.431 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_032.WAV
+2025-11-14 13:50:10.443 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_028.TAKE/180107_028.WAV
+2025-11-14 13:50:10.463 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 8 speech segments in temp/180107_031.WAV
+2025-11-14 13:50:10.469 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_011.WAV
+2025-11-14 13:50:10.535 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_028.TAKE/180107_028.WAV
+2025-11-14 13:50:10.589 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 8 segments (min_len=0.0s)
+2025-11-14 13:50:10.613 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_011.WAV
+2025-11-14 13:50:10.623 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_032.WAV
+2025-11-14 13:50:10.794 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:10.890 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 8 segments → Recording_251114/180107_024.TAKE/180107_024_segment (threads=8)
+2025-11-14 13:50:10.914 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 7 speech segments in temp/180107_011.WAV
+2025-11-14 13:50:11.010 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_024.TAKE/180107_024.WAV
+2025-11-14 13:50:11.051 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 7 segments (min_len=0.0s)
+2025-11-14 13:50:11.174 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_008.TAKE/180107_008_segment (threads=8)
+2025-11-14 13:50:11.205 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_024.TAKE/180107_024.WAV
+2025-11-14 13:50:11.246 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_046.WAV
+2025-11-14 13:50:11.317 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_008.TAKE/180107_008.WAV
+2025-11-14 13:50:11.402 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_046.WAV
+2025-11-14 13:50:11.445 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_008.TAKE/180107_008.WAV
+2025-11-14 13:50:11.649 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 7 speech segments in temp/180107_046.WAV
+2025-11-14 13:50:11.680 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_032.TAKE/180107_032_segment (threads=8)
+2025-11-14 13:50:11.733 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 7 segments (min_len=0.0s)
+2025-11-14 13:50:11.862 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_032.TAKE/180107_032.WAV
+2025-11-14 13:50:11.924 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_032.TAKE/180107_032.WAV
+2025-11-14 13:50:11.991 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_007.WAV
+2025-11-14 13:50:12.035 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_007.WAV
+2025-11-14 13:50:12.294 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 10 speech segments in temp/180107_007.WAV
+2025-11-14 13:50:12.338 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 10 segments (min_len=0.0s)
+2025-11-14 13:50:12.489 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 7 segments → Recording_251114/180107_011.TAKE/180107_011_segment (threads=8)
+2025-11-14 13:50:12.530 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 7 segments → Recording_251114/180107_046.TAKE/180107_046_segment (threads=8)
+2025-11-14 13:50:12.551 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_011.TAKE/180107_011.WAV
+2025-11-14 13:50:12.576 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 8 segments → Recording_251114/180107_031.TAKE/180107_031_segment (threads=8)
+2025-11-14 13:50:12.600 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_046.TAKE/180107_046.WAV
+2025-11-14 13:50:12.619 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_006.WAV
+2025-11-14 13:50:12.698 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_011.TAKE/180107_011.WAV
+2025-11-14 13:50:12.781 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_031.TAKE/180107_031.WAV
+2025-11-14 13:50:12.873 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_046.TAKE/180107_046.WAV
+2025-11-14 13:50:12.910 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_006.WAV
+2025-11-14 13:50:12.970 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 10 segments → Recording_251114/180107_007.TAKE/180107_007_segment (threads=8)
+2025-11-14 13:50:12.992 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_031.TAKE/180107_031.WAV
+2025-11-14 13:50:12.998 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_047.WAV
+2025-11-14 13:50:13.095 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_007.TAKE/180107_007.WAV
+2025-11-14 13:50:13.166 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_006.WAV
+2025-11-14 13:50:13.190 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_047.WAV
+2025-11-14 13:50:13.332 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_007.TAKE/180107_007.WAV
+2025-11-14 13:50:13.397 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:13.611 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_047.WAV
+2025-11-14 13:50:13.624 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:13.698 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_030.WAV
+2025-11-14 13:50:13.748 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_030.WAV
+2025-11-14 13:50:13.960 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 8 speech segments in temp/180107_030.WAV
+2025-11-14 13:50:13.980 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 8 segments (min_len=0.0s)
+2025-11-14 13:50:14.674 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_047.TAKE/180107_047_segment (threads=8)
+2025-11-14 13:50:14.693 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_047.TAKE/180107_047.WAV
+2025-11-14 13:50:14.827 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_026.WAV
+2025-11-14 13:50:14.857 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_047.TAKE/180107_047.WAV
+2025-11-14 13:50:14.893 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_026.WAV
+2025-11-14 13:50:14.930 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_006.TAKE/180107_006_segment (threads=8)
+2025-11-14 13:50:14.954 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 8 segments → Recording_251114/180107_030.TAKE/180107_030_segment (threads=8)
+2025-11-14 13:50:14.990 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_006.TAKE/180107_006.WAV
+2025-11-14 13:50:15.075 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_030.TAKE/180107_030.WAV
+2025-11-14 13:50:15.122 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_026.WAV
+2025-11-14 13:50:15.172 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_006.TAKE/180107_006.WAV
+2025-11-14 13:50:15.227 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_030.TAKE/180107_030.WAV
+2025-11-14 13:50:15.240 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:15.884 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_001.WAV
+2025-11-14 13:50:15.915 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_001.WAV
+2025-11-14 13:50:15.927 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_017.WAV
+2025-11-14 13:50:16.031 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_021.WAV
+2025-11-14 13:50:16.070 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_017.WAV
+2025-11-14 13:50:16.084 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 11 speech segments in temp/180107_001.WAV
+2025-11-14 13:50:16.127 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_021.WAV
+2025-11-14 13:50:16.209 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 11 segments (min_len=0.0s)
+2025-11-14 13:50:16.260 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_026.TAKE/180107_026_segment (threads=8)
+2025-11-14 13:50:16.334 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_026.TAKE/180107_026.WAV
+2025-11-14 13:50:16.347 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_017.WAV
+2025-11-14 13:50:16.361 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_021.WAV
+2025-11-14 13:50:16.387 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_026.TAKE/180107_026.WAV
+2025-11-14 13:50:16.407 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:16.440 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:16.807 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_037.WAV
+2025-11-14 13:50:16.814 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_037.WAV
+2025-11-14 13:50:16.877 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 11 segments → Recording_251114/180107_001.TAKE/180107_001_segment (threads=8)
+2025-11-14 13:50:16.908 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_001.TAKE/180107_001.WAV
+2025-11-14 13:50:16.922 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 11 speech segments in temp/180107_037.WAV
+2025-11-14 13:50:16.934 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_001.TAKE/180107_001.WAV
+2025-11-14 13:50:16.995 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 11 segments (min_len=0.0s)
+2025-11-14 13:50:17.298 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_036.WAV
+2025-11-14 13:50:17.318 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_036.WAV
+2025-11-14 13:50:17.318 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_021.TAKE/180107_021_segment (threads=8)
+2025-11-14 13:50:17.318 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_017.TAKE/180107_017_segment (threads=8)
+2025-11-14 13:50:17.324 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_021.TAKE/180107_021.WAV
+2025-11-14 13:50:17.367 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 8 speech segments in temp/180107_036.WAV
+2025-11-14 13:50:17.368 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_017.TAKE/180107_017.WAV
+2025-11-14 13:50:17.413 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_021.TAKE/180107_021.WAV
+2025-11-14 13:50:17.479 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 8 segments (min_len=0.0s)
+2025-11-14 13:50:17.479 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_017.TAKE/180107_017.WAV
+2025-11-14 13:50:17.479 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 11 segments → Recording_251114/180107_037.TAKE/180107_037_segment (threads=8)
+2025-11-14 13:50:17.480 | INFO     | split_audio.split_audio_long_base:resample:93 - Resampled to 16000 Hz → temp/180107_016.WAV
+2025-11-14 13:50:17.480 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_037.TAKE/180107_037.WAV
+2025-11-14 13:50:17.487 | INFO     | split_audio.split_audio_long_base:split_audio_vad:98 - Splitting file: temp/180107_016.WAV
+2025-11-14 13:50:17.493 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_037.TAKE/180107_037.WAV
+2025-11-14 13:50:17.535 | INFO     | split_audio.split_audio_long_base:split_audio_vad:140 - Detected 9 speech segments in temp/180107_016.WAV
+2025-11-14 13:50:17.536 | INFO     | split_audio.split_audio_long_base:merge_segments:173 - Merged into 9 segments (min_len=0.0s)
+2025-11-14 13:50:17.571 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 8 segments → Recording_251114/180107_036.TAKE/180107_036_segment (threads=8)
+2025-11-14 13:50:17.578 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_036.TAKE/180107_036.WAV
+2025-11-14 13:50:17.585 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_036.TAKE/180107_036.WAV
+2025-11-14 13:50:17.629 | INFO     | split_audio.split_audio_long_base:cut_audio:238 - Exported 9 segments → Recording_251114/180107_016.TAKE/180107_016_segment (threads=8)
+2025-11-14 13:50:17.630 | INFO     | split_audio.split_audio_long_base:process_file:271 - Processed file Recording_251114/180107_016.TAKE/180107_016.WAV
+2025-11-14 13:50:17.630 | INFO     | split_audio.split_audio_long_base:process_one:305 - Done: Recording_251114/180107_016.TAKE/180107_016.WAV
+2025-11-14 13:50:17.630 | INFO     | split_audio.split_audio_long_base:process_all:316 - Finished processing 37 files total.
+2025-11-14 13:50:17.633 | INFO     | split_audio.split_audio_long_base:clear_temp_files:247 - Cleared all temp files in temp

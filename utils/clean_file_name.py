@@ -27,13 +27,24 @@ class CleanFileName:
         if not self.root_dir.exists():
             raise ValueError(f"Folder does not exist: {root_dir}")
 
+    def normalize_suffix3(self, name: str) -> str:
+        if "_" not in name:
+            return name
+
+        prefix, suffix = name.rsplit("_", 1)
+        new_suffix = suffix[-3:].zfill(3)
+        return f"{prefix}_{new_suffix}"
+
     def clean_segment_prefix(self, file_path: Path):
         name = file_path.stem
         ext = file_path.suffix
 
         new_name = name  # default, no change
 
-        if self.portion == "start":
+        if self.portion == "suffix3":
+            new_name = self.normalize_suffix3(name)
+
+        elif self.portion == "start":
             if name.startswith(self.original):
                 new_name = self.change_to + name[len(self.original) :]
 

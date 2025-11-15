@@ -17,12 +17,14 @@ class AudioDirectorySummary:
         save_json: bool = False,
         json_output: str = "audio_summary.json",
         max_workers: int = 8,
+        deepest: bool = False,
     ):
         self.root_dir = root_dir
         self.extensions = extensions
         self.save_json = save_json
         self.json_output = json_output
         self.max_workers = max_workers
+        self.deepest = deepest
 
     @staticmethod
     def get_audio_duration(filepath: str) -> float:
@@ -87,9 +89,20 @@ class AudioDirectorySummary:
 
         extension_stats = defaultdict(lambda: {"count": 0, "duration": 0.0, "size": 0})
 
-        files = [
-            f for f in root_path.rglob("*") if f.is_file() and f.suffix.lower() in self.extensions
-        ]
+        if self.deepest:
+            files = []
+            deepest_dirs = [d for d, subdirs, _ in os.walk(root_path) if not subdirs]
+            deepest_dirs = [Path(d) for d in deepest_dirs]
+            for d in deepest_dirs:
+                files.extend(
+                    [f for f in d.iterdir() if f.is_file() and f.suffix.lower() in self.extensions]
+                )
+        else:
+            files = [
+                f
+                for f in root_path.rglob("*")
+                if f.is_file() and f.suffix.lower() in self.extensions
+            ]
 
         total_files = len(files)
         logger.info(f"Found {total_files} audio files under {self.root_dir}")

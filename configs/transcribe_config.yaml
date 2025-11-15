@@ -1,22 +1,24 @@
 model:
-  name: "large-v3"        # Whisper model size: tiny, base, small, medium, large
-  device: "cuda"        # or "cpu" if GPU is unavailable
+  name: "base"  # GPU 7 has plenty of space!
+  device: "cuda"
 
 data:
-  root_dir: "/workspace/wavs_20250416_012741_splits_filtered"   # root directory containing audio files
-  recursive: true                      # whether to search subfolders
-  extension: ".wav"                    # audio file extension
-  output_prefix: "out_"                # prefix for output transcriptions
+  root_dir: "/workspace/wavs_20250416_013301_segments"
+  recursive: true
+  extension: "wav"
+  output_prefix: ""
 
 processing:
-  max_workers: 8                       # number of parallel threads or processes
+  num_gpus: 1
+  num_actors: 2           # 2 actors (0.25 GPU each)
+  batch_size: 8           # 8 files per batch
+  dynamic_batching: false
+  use_fp16: true
+  ray_temp_dir: "/workspace/ray_tmp"
 
 transcription:
-  language: "ko"                       # ISO language code (e.g., "en", "ko", "ja")
+  language: "ko"
+  task: "transcribe"
   temperature: 0.0                     # sampling temperature for decoding
-  best_of: 1                           # number of candidates to consider
   beam_size: 5                         # beam search size
   patience: 1.0                        # beam search patience
-  condition_on_previous_text: true     # use previous text context for long audio
-  fp16: true                           # use half precision if GPU is available
-  verbose: false                       # print intermediate logs

@@ -21,6 +21,14 @@ def main(audio_dir: str, text_dir):
         portion="any",
     ).process_all()
 
+    CleanFileName(
+        root_dir=text_dir,
+        extensions=["txt"],
+        original="",
+        change_to="",
+        portion="suffix3",
+    ).process_all()
+
     summary = remove_empty_folders_max_depth(audio_dir, extension="txt")
     splitter = TextSentenceSplitter(
         root_dir=audio_dir, sentence_folders=True  # toggle this to True/False
@@ -41,4 +49,4 @@ def main(audio_dir: str, text_dir):
 
 
 if __name__ == "__main__":
-    main(audio_dir="Recording_2511112", text_dir="TEXT_251112")
+    main(audio_dir="Recording_251114", text_dir="TEXT_251114")

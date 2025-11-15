@@ -1,21 +1,9 @@
-# config.yaml
-
-model:
-  name: "large-v3"           # Whisper model name (tiny, base, small, medium, large)
-  device: "cuda"          # optional; defaults to "cuda" if available, otherwise "cpu"
-
 data:
-  root_dir: "/workspace/"  # Root directory containing folders with .wav and .txt
-  folder_prefix: ""             # optional; only process folders starting with this prefix
-  extension: ".wav"                   # audio file extension
-  output_prefix: "out_"               # optional prefix for outputs
+  root_dir: "Recording_251114"  # Root directory containing folders with .wav and .txt
+  folder_prefix: null             # optional; only process folders starting with this prefix
+  nested_folders: True               # optional prefix for outputs
 
 val:
-  ratio_threshold: 0.2                # max allowed word count difference ratio between predicted and reference
+  ratio_threshold: 0.25                # max allowed word count difference ratio between predicted and reference
   val_csv_output: "validation_summary.csv"  # CSV file name to save validation results
-
-transcription:
-  verbose: True
-  beam_size: 5
-  temperature: 0.0
-  language: "ko"
+  delete_files: True

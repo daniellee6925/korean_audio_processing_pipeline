@@ -45,7 +45,7 @@ class RsyncCopier:
 if __name__ == "__main__":
     copier = RsyncCopier(
         remote_user_host="daniel@a100-4",
-        remote_path="/fsx/workspace/daniel/whisper/Recording_2511112",
+        remote_path="/fsx/workspace/daniel/korean_audio_processing_pipeline/Recording_251114",
         local_path="/Users/daniel/desktop/projects/local_copy",
     )
 
