@@ -1,11 +1,26 @@
-.flake8
-archive/
-.venv
-pyproject.toml
-temp_folder/
-.DS_Store
+# Environment & Python
+.venv/
 __pycache__/
-temp_files/
-old/
-.git
+*.pyc
+*.pyo
+
+# Project files
+.env
+.DS_Store
+.flake8
+pyproject.toml
+
+# Directories to ignore
+archive/
 data/
+old/
+onetime/
+poddbang_wavs/
+temp_files/
+temp_folder/
+gradio_ui/audio_labeler/annotations
+gradio_ui/keep_or_trash/discard
+gradio_ui/keep_or_trash/keep
+
+# System / Git internals
+.git/

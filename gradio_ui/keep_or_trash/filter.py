@@ -3,7 +3,7 @@ import shutil
 import gradio as gr
 from pathlib import Path
 
-AUDIO_DIR = Path("data/wavs_20250416_013301_segments")
+AUDIO_DIR = Path("Final")
 TRASH_DIR = Path("data/trash")
 
 os.makedirs(TRASH_DIR, exist_ok=True)

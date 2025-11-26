@@ -4,20 +4,109 @@ import subprocess
 from pathlib import Path
 from loguru import logger
 import os
+from tqdm.asyncio import tqdm_asyncio
+from tqdm import tqdm
 
-AUDIO_EXTS = {".mp3", ".wav", ".flac", ".m4a", ".aac", ".ogg", ".mp4"}
+
+class FilterCorruptSegments:
+
+    def __init__(self, root_dir):
+        self.root_dir = root_dir
+        self.files_to_check = []
+        self.AUDIO_EXTS = (".wav", ".mp3", ".flac", ".m4a", ".aac", ".ogg", ".mp4", ".mkv")
+        self.deleted_count = 0
+
+    def collect_files(self):
+        """Recursively collect all audio/video files in root_dir."""
+        for root, dirs, files in os.walk(self.root_dir):
+            for f in files:
+                if f.lower().endswith(self.AUDIO_EXTS):
+                    full_path = os.path.join(root, f)
+                    self.files_to_check.append(full_path)
+
+    async def is_corrupt(self, file_path):
+        proc = await asyncio.create_subprocess_exec(
+            "ffmpeg",
+            "-v",
+            "warning",  # show warnings
+            "-i",
+            file_path,
+            "-f",
+            "null",
+            "-",
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+        )
+        stdout, stderr = await proc.communicate()
+        logs = (stdout + stderr).decode("utf-8", errors="ignore")
+
+        # Check for known corruption indicators
+        corrupt_keywords = [
+            "Malformed 'fmt '",
+            "Invalid data found",
+            "Reserved bit set",
+            "Number of bands",
+        ]
+        for kw in corrupt_keywords:
+            if kw in logs:
+                return True
+        return False
+
+    async def delete_corrupt_file(self, file_path):
+        """Delete the file if corrupt."""
+        if await self.is_corrupt(file_path):
+            # logger.info(f"Deleting corrupt file: {file_path}")
+            os.remove(file_path)
+            self.deleted_count += 1
+
+    async def run(self, max_concurrent=100):
+        self.collect_files()
+        semaphore = asyncio.Semaphore(max_concurrent)
+
+        async def sem_task(f):
+            async with semaphore:
+                await self.delete_corrupt_file(f)
+                return 1  # needed by tqdm_asyncio
+
+        tasks = [sem_task(f) for f in self.files_to_check]
+
+        await tqdm_asyncio.gather(
+            *tasks,
+            desc="Filtering Corrupt Segment Files",
+            unit="file",
+        )
+
+    def process_all(self, max_concurrent=100):
+        """Public method — runs the async process internally."""
+        asyncio.run(self.run(max_concurrent))
+        logger.success(f"Deleted {self.deleted_count} corrupted files")
 
 
 class FilterCorrupt:
     def __init__(
         self,
         root_dir: str,
-        max_workers: int = 8,
+        max_workers: int = 10,
         delete_bad: bool = False,
     ):
         self.root_dir = root_dir
         self.max_workers = max_workers
         self.delete_bad = delete_bad
+        self.AUDIO_EXTS = (".wav", ".mp3", ".flac", ".m4a", ".aac", ".ogg", ".mp4", ".mkv")
+
+    def is_corrupt(self, file_path: Path) -> bool:
+        """Return True if FFmpeg fails to probe/decode the file."""
+        try:
+            # Use ffmpeg to check if file can be read
+            subprocess.run(
+                ["ffmpeg", "-v", "error", "-i", str(file_path), "-f", "null", "-"],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                check=True,
+            )
+            return False
+        except subprocess.CalledProcessError:
+            return True
 
     def probe_audio(self, file_path: Path) -> bool:
         """Check audio integrity using ffprobe without decoding the full file."""
@@ -50,7 +139,7 @@ class FilterCorrupt:
     async def check_all_audio(self):
         """Run ffprobe checks concurrently for all audio files, delete bad or non-WAV files."""
         root = Path(self.root_dir)
-        files = [f for f in root.rglob("*") if f.suffix.lower() in AUDIO_EXTS]
+        files = [f for f in root.rglob("*") if f.suffix.lower() in self.AUDIO_EXTS]
         logger.info(f"Found {len(files)} audio files under {self.root_dir}\n")
 
         bad_files = []
@@ -89,8 +178,7 @@ class FilterCorrupt:
 
 if __name__ == "__main__":
     filter = FilterCorrupt(
-        root_dir="/Users/daniel/Desktop/projects/local_copy/wavs_20250416_012741",
+        root_dir="poddbang_wavs/wavs_20250416_013301_segments",
         delete_bad=True,
-        delete_non_wav=True,  # Delete mis-labeled WAVs
     )
     filter.process_all()

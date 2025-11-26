@@ -1,0 +1,29 @@
+model:
+  name: "large-v3"  
+  device: "cuda"
+
+data:
+  root_dir: "/workspace/wavs_20250416_013301_segments"
+  recursive: true
+  extension: "wav"
+  output_prefix: ""
+
+processing:
+  num_gpus: 1
+  num_actors: 2           # 2 actors (0.25 GPU each)
+  batch_size: 8           # 8 files per batch
+  ray_temp_dir: "/workspace/ray_tmp"
+
+transcription:
+  language: "ko"                    # Force Korean, 
+  task: "transcribe"                # Only transcribe, not translate
+  temperature: 0.0                  # Deterministic decoding for maximum accuracy
+  beam_size: 5                       # Standard beam search, good accuracy/speed balance
+  patience: 1.0                      # Default patience, no need to change
+  initial_prompt: ""                 # Optional: provide context words to improve recognition
+  word_timestamps: False              # Enable word-level timestamps (helps with alignment)
+  suppress_tokens: [-1]              # Tokens to ignore, e.g., unwanted symbols
+  no_speech_threshold: 0.6           # Threshold for detecting silence vs speech
+  logprob_threshold: -0.5            # Filter low-confidence tokens (-1 = keep all)
+  vad_filter: True                    # Use voice activity detection to split segments cleanly
+  beam_search_penalty: 0.0           # Optional penalty for repeated tokens

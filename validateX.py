@@ -7,7 +7,7 @@ from loguru import logger
 import yaml
 from typing import Dict, Any, List
 from tqdm import tqdm
-from normalize_korean import KoreanTextNormalizer
+from utils.normalize_korean import KoreanTextNormalizer
 
 
 class ValidateSplit:
@@ -92,7 +92,9 @@ class ValidateSplit:
                 ratio_diffs.append(ratio_diff)
                 if ratio_diff > self.ratio_threshold:
                     flagged_sentences += 1
-                    logger.debug(f"Ratio diff too high for {trans_file.name}: {ratio_diff:.3f}")
+                    logger.debug(
+                        f"Ratio diff too high for {trans_file.name}: {ratio_diff:.3f}"
+                    )
             except Exception as e:
                 logger.error(f"Error processing {trans_file}: {e}")
                 status = "FAIL"
@@ -111,10 +113,14 @@ class ValidateSplit:
         """Yield (dirpath, wav_files, txt_files) tuples where both exist."""
         for dirpath, _, files in os.walk(self.root_dir):
             dirpath = Path(dirpath)
-            if self.folder_prefix is not None and not dirpath.name.startswith(self.folder_prefix):
+            if self.folder_prefix is not None and not dirpath.name.startswith(
+                self.folder_prefix
+            ):
                 continue
 
-            all_txts = sorted([dirpath / f for f in files if f.lower().endswith(".txt")])
+            all_txts = sorted(
+                [dirpath / f for f in files if f.lower().endswith(".txt")]
+            )
             if not all_txts:
                 continue
 
@@ -134,12 +140,18 @@ class ValidateSplit:
 
             if not dirnames:
                 parent_dir = dirpath.parent
-                all_txts = [dirpath / f for f in filenames if f.lower().endswith(".txt")]
+                all_txts = [
+                    dirpath / f for f in filenames if f.lower().endswith(".txt")
+                ]
                 if not all_txts:
                     continue
 
-                trans_files = sorted([f for f in all_txts if f.name.lower().startswith("trans_")])
-                txt_files = sorted([f for f in all_txts if not f.name.lower().startswith("trans_")])
+                trans_files = sorted(
+                    [f for f in all_txts if f.name.lower().startswith("trans_")]
+                )
+                txt_files = sorted(
+                    [f for f in all_txts if not f.name.lower().startswith("trans_")]
+                )
 
                 if trans_files or txt_files:
                     if parent_dir not in results:
@@ -178,7 +190,9 @@ class ValidateSplit:
         passed = sum(1 for _, status in pairs if status.upper() == "PASS")
         success_rate = passed / total * 100 if total > 0 else 0
         logger.success(f"Finished Validating {total} Folders.")
-        logger.success(f"Total of {passed} Folders Passed with a pass-rate of {success_rate:.2f}%")
+        logger.success(
+            f"Total of {passed} Folders Passed with a pass-rate of {success_rate:.2f}%"
+        )
 
     @staticmethod
     def delete_fails(pairs) -> None:
@@ -202,7 +216,9 @@ class ValidateSplit:
             else self.val_csv_output
         )
         csv_file, writer, csv_path = self.open_csv_writer(csv_name)
-        logger.info(f"Starting validation under {self.root_dir} (prefix={self.folder_prefix})")
+        logger.info(
+            f"Starting validation under {self.root_dir} (prefix={self.folder_prefix})"
+        )
 
         folders_to_validate = self.iter_nested_files()
 
@@ -214,7 +230,9 @@ class ValidateSplit:
 
         try:
             for dirpath, files in tqdm(
-                folders_to_validate.items(), total=len(folders_to_validate), desc="Validating"
+                folders_to_validate.items(),
+                total=len(folders_to_validate),
+                desc="Validating",
             ):
                 trans_files = files["trans"]
                 txt_files = files["txt"]
